@@ -9,6 +9,8 @@ class MovieSupplier extends Model
 {
     use HasFactory;
 
+    protected $table = 'movie_supplier';
+
     public function movie() {
         return $this->hasOne('App\Models\Movie');
     }
