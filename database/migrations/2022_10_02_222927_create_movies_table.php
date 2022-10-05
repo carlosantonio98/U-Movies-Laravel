@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('img_cover', 50);
             $table->string('img_slide', 50);
             $table->string('slug', 200);
-            $table->enum('premier', ['No', 'Si']);
+            $table->enum('premier', [1, 2])->default(1);
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')
