@@ -9,6 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
+    public $fillable = [
+        'name',
+        'slug'
+    ];
+
     public function movies() {
         return $this->belongsToMany('App\Models\Movie');
     }
