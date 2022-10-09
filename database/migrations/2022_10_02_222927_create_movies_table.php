@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name', 150);
             $table->text('extract', 250);
             $table->longText('description');
-            $table->string('img_cover', 50);
-            $table->string('img_slide', 50);
+            $table->string('img_cover', 100);
+            $table->string('img_slide', 100);
             $table->string('slug', 200);
             $table->enum('premier', [1, 2])->default(1);
             $table->unsignedBigInteger('user_id');
