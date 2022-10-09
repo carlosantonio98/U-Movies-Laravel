@@ -10,6 +10,6 @@ class Comment extends Model
     use HasFactory;
 
     public function movie() {
-        return $this->hasOne('App\Models\Movie');
+        return $this->belongsTo('App\Models\Movie');
     }
 }
