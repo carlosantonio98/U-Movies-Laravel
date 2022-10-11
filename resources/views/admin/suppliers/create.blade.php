@@ -1,6 +1,6 @@
 <h1>Create a new supplier</h1>
 
-{!! Form::open(['route' => 'suppliers.store', 'files' => true]) !!}
+{!! Form::open(['route' => 'admin.suppliers.store', 'files' => true]) !!}
     <div>
         {!! Form::label('name', 'Name') !!}
         {!! Form::text('name') !!}
@@ -33,7 +33,7 @@
     </div>
 
     {!! Form::submit('Save') !!}
-    <a href="{{ route('categories.index') }}">Go back</a>
+    <a href="{{ route('admin.suppliers.index') }}">Go back</a>
     
 {!! Form::close() !!}
 
