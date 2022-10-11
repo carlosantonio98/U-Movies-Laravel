@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $category = Category::create($request->all());
 
-        return redirect()->route('categories.show', $category);
+        return redirect()->route('admin.categories.show', $category);
     }
 
     /**
@@ -92,7 +92,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
         
-        return redirect()->route('categories.show', $category);
+        return redirect()->route('admin.categories.show', $category);
     }
 
     /**
@@ -107,6 +107,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('categories.index');
+        return redirect()->route('admin.categories.index');
     }
 }

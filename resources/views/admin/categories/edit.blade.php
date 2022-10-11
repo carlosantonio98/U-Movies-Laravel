@@ -1,6 +1,6 @@
 <h1>Edit category</h1>
 
-{!! Form::model($category, ['route' => ['categories.update', $category], 'method' => 'put']) !!}
+{!! Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'put']) !!}
     <div>
         {!! Form::label('name', 'Name') !!}
         {!! Form::text('name', ) !!}
@@ -20,6 +20,6 @@
     </div>
 
     {!! Form::submit('Save changes') !!}
-    <a href="{{ route('categories.index') }}">Go back</a>
+    <a href="{{ route('admin.categories.index') }}">Go back</a>
     
 {!! Form::close() !!}
