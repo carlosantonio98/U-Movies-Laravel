@@ -1,6 +1,6 @@
 <h1>Edit supplier</h1>
 
-{!! Form::model($supplier, ['route' => ['suppliers.update', $supplier], 'files' => true, 'method' => 'put']) !!}
+{!! Form::model($supplier, ['route' => ['admin.suppliers.update', $supplier], 'files' => true, 'method' => 'put']) !!}
     <div>
         {!! Form::label('name', 'Name') !!}
         {!! Form::text('name') !!}
@@ -33,7 +33,7 @@
     </div>
 
     {!! Form::submit('Save changes') !!}
-    <a href="{{ route('suppliers.index') }}">Go back</a>
+    <a href="{{ route('admin.suppliers.index') }}">Go back</a>
     
 {!! Form::close() !!}
 
