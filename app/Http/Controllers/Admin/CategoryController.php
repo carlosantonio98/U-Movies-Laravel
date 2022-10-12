@@ -15,11 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $this->authorize('viewAny', new Category);
-
-        $categories = Category::latest()->get();
-
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index');
     }
 
     /**
