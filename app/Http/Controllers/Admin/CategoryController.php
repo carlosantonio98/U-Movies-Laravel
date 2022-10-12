@@ -15,6 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', new Category);
+
         return view('admin.categories.index');
     }
 

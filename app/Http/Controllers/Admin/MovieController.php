@@ -23,9 +23,7 @@ class MovieController extends Controller
     {
         $this->authorize('viewAny', new Movie);
 
-        $movies = Movie::latest('id')->get();
-
-        return view('admin.movies.index', compact('movies'));
+        return view('admin.movies.index');
     }
 
     /**
