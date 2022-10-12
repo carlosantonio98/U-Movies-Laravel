@@ -30,6 +30,6 @@ class Movie extends Model
     }
     
     public function suppliers() {
-        return $this->belongsTo('App\Models\MovieSupplier');
+        return $this->belongsToMany('App\Models\Supplier', 'movie_supplier', 'movie_id', 'supplier_id')->withPivot('page');
     }
 }

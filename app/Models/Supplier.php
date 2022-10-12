@@ -10,6 +10,6 @@ class Supplier extends Model
     use HasFactory;
 
     public function movies() {
-        return $this->belongsToMany('App\Models\Movie');
+        return $this->belongsToMany('App\Models\Movie', 'movie_supplier', 'movie_id', 'supplier_id')->withPivot('page');
     }
 }
