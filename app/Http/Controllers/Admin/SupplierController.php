@@ -18,9 +18,7 @@ class SupplierController extends Controller
     {
         $this->authorize('viewAny', new Supplier);
 
-        $suppliers = Supplier::all();
-
-        return view('admin.suppliers.index', compact('suppliers'));
+        return view('admin.suppliers.index');
     }
 
     /**
