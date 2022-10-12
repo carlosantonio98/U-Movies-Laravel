@@ -1,4 +1,4 @@
-<a href="{{ route('categories.create') }}">New category</a>
+<a href="{{ route('admin.categories.create') }}">New category</a>
 <div>
     <table>
         <thead>
@@ -16,10 +16,10 @@
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->slug }}</td>
                     <td>
-                        <a href="{{ route('categories.show', $category) }}">View</a>
-                        <a href="{{ route('categories.edit', $category) }}">Edit</a>
+                        <a href="{{ route('admin.categories.show', $category) }}">View</a>
+                        <a href="{{ route('admin.categories.edit', $category) }}">Edit</a>
                         
-                        {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'delete']) !!}
+                        {!! Form::open(['route' => ['admin.categories.destroy', $category], 'method' => 'delete']) !!}
                             {!! Form::submit('Delete') !!}
                         {!! Form::close() !!}
                     </td>

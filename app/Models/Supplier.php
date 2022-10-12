@@ -9,6 +9,12 @@ class Supplier extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'slug',
+        'logo'
+    ];
+
     public function movies() {
         return $this->belongsToMany('App\Models\Movie', 'movie_supplier', 'movie_id', 'supplier_id')->withPivot('page');
     }

@@ -18,7 +18,7 @@ class CategoriesTest extends TestCase
         
         $category = Category::factory()->create();
 
-        $response = $this->get(route('categories.index'));
+        $response = $this->get(route('admin.categories.index'));
 
         $response->assertSee($category->name);
     }
@@ -29,7 +29,7 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->create();
 
-        $response = $this->get(route('categories.index'));
+        $response = $this->get(route('admin.categories.index'));
 
         $response->assertSee($category->name);
     }
@@ -40,12 +40,12 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->create();
 
-        $this->get(route('categories.index'))->assertStatus(403);
+        $this->get(route('admin.categories.index'))->assertStatus(403);
     }
 
     public function test_unauthenticated_user_cannot_see_all_categories()
     {
-        $response = $this->get(route('categories.index'))
+        $response = $this->get(route('admin.categories.index'))
             ->assertRedirect(route('login'));
     }
 
@@ -55,7 +55,7 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->create();
 
-        $response = $this->get(route('categories.show', $category->id));
+        $response = $this->get(route('admin.categories.show', $category->id));
 
         $response->assertSee($category->name)
             ->assertSee($category->slug);
@@ -65,7 +65,7 @@ class CategoriesTest extends TestCase
     {
         $category = Category::factory()->create();
 
-        $this->get(route('categories.show', $category))
+        $this->get(route('admin.categories.show', $category))
             ->assertRedirect(route('login'));
     }
 
@@ -75,7 +75,7 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->make();
 
-        $this->post(route('categories.store'), $category->toArray());
+        $this->post(route('admin.categories.store'), $category->toArray());
 
         $this->assertEquals(1, Category::all()->count());
     }
@@ -84,7 +84,7 @@ class CategoriesTest extends TestCase
     {
         $category = Category::factory()->make();
 
-        $this->post(route('categories.store'), $category->toArray())
+        $this->post(route('admin.categories.store'), $category->toArray())
             ->assertRedirect(route('login'));
     }
     
@@ -94,7 +94,7 @@ class CategoriesTest extends TestCase
         
         $category = Category::factory()->make();
 
-        $this->post(route('categories.store'), $category->toArray())
+        $this->post(route('admin.categories.store'), $category->toArray())
             ->assertStatus(403);
     }
 
@@ -104,7 +104,7 @@ class CategoriesTest extends TestCase
         
         $category = Category::factory()->make(['name' => null]);
 
-        $this->post(route('categories.store'), $category->toArray())
+        $this->post(route('admin.categories.store'), $category->toArray())
             ->assertSessionHasErrors('name');
     }
 
@@ -114,7 +114,7 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->make(['slug' => null]);
 
-        $this->post(route('categories.store'), $category->toArray())
+        $this->post(route('admin.categories.store'), $category->toArray())
             ->assertSessionHasErrors('slug');
     }
 
@@ -125,7 +125,7 @@ class CategoriesTest extends TestCase
         $category = Category::factory()->create();
         $category->name = 'Name updated';
 
-        $this->put(route('categories.update', $category), $category->toArray());
+        $this->put(route('admin.categories.update', $category), $category->toArray());
 
         $this->assertDatabaseHas('categories', ['id' => $category->id, 'name' => 'Name updated']);
     }
@@ -137,7 +137,7 @@ class CategoriesTest extends TestCase
         $category = Category::factory()->create();
         $category->name = "Name updated";
 
-        $response = $this->put(route('categories.update', $category), $category->toArray());
+        $response = $this->put(route('admin.categories.update', $category), $category->toArray());
         $response->assertStatus(403);
     }
 
@@ -148,7 +148,7 @@ class CategoriesTest extends TestCase
         $category = Category::factory()->create();
         $category->name = null;
 
-        $this->put(route('categories.update', $category), $category->toArray())
+        $this->put(route('admin.categories.update', $category), $category->toArray())
             ->assertSessionHasErrors('name');
     }
 
@@ -159,7 +159,7 @@ class CategoriesTest extends TestCase
         $category = Category::factory()->create();
         $category->slug = null;
 
-        $this->put(route('categories.update', $category), $category->toArray())
+        $this->put(route('admin.categories.update', $category), $category->toArray())
             ->assertSessionHasErrors('slug');
     }
 
@@ -169,7 +169,7 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->create();
 
-        $this->delete(route('categories.destroy', $category));
+        $this->delete(route('admin.categories.destroy', $category));
 
         $this->assertDatabaseMissing('categories', ['id' => $category->id]);
     }
@@ -180,7 +180,7 @@ class CategoriesTest extends TestCase
 
         $category = Category::factory()->create();
 
-        $response = $this->delete(route('categories.destroy', $category));
+        $response = $this->delete(route('admin.categories.destroy', $category));
 
         $response->assertStatus(403);
     }

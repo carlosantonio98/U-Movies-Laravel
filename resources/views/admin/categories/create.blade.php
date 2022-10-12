@@ -1,6 +1,6 @@
 <h1>Create a new category</h1>
 
-{!! Form::open(['route' => 'categories.store']) !!}
+{!! Form::open(['route' => 'admin.categories.store']) !!}
     <div>
         {!! Form::label('name', 'Name') !!}
         {!! Form::text('name') !!}
@@ -20,6 +20,6 @@
     </div>
 
     {!! Form::submit('Save') !!}
-    <a href="{{ route('categories.index') }}">Go back</a>
+    <a href="{{ route('admin.categories.index') }}">Go back</a>
     
 {!! Form::close() !!}
