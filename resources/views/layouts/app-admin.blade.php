@@ -4,8 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title')</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -15,21 +14,30 @@
 
         <!-- Styles -->
         @livewireStyles
+        @yield('css')
+
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">
-            @livewire('navigation')
+            @livewire('admin.navigation')
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+            <div class="container">
+                {{-- Header content --}}
+                <header>@yield('content_header')</header>
+    
+                <!-- Body content -->
+                <main>@yield('content')</main>
+            </div>
+
         </div>
 
         @stack('modals')
 
+        {{-- Scripts --}}
         @livewireScripts
+        @yield('js')
+
     </body>
 </html>

@@ -1,14 +1,16 @@
-<x-app-layout>
+@extends('../../layouts/app-admin')
+
+@section('title', 'UMovies')
+
+@section('content_header')
     @if (session('info'))
         <p><b>{{ session('info') }}</b></p>
     @endif
+    
+    <h1>Lista de películas</h1>
+    <a href="{{ route('admin.movies.create') }}">Nueva película</a>
+@endsection
 
-
-    <h1 class="font-bold text-3xl">Movie list</h1>
-    <a href="{{ route('admin.movies.create') }}">New movie</a>
-
-    <div>
-        @livewire('admin.movie-index')
-    </div>
-
-</x-app-layout>
+@section('content')
+    @livewire('admin.movie-index')
+@endsection

@@ -1,10 +1,16 @@
-<x-app-layout>
+@extends('../../layouts/app-admin')
 
-    <h1 class="font-bold text-3xl">Supplier list</h1>
-    <a href="{{ route('admin.suppliers.create') }}">New supplier</a>
+@section('title', 'UMovies')
 
-    <div>
-        @livewire('admin.supplier-index')
-    </div>
+@section('content_header')
+    @if (session('info'))
+        <p><b>{{ session('info') }}</b></p>
+    @endif
 
-</x-app-layout>
+    <h1>Lista de proveedores</h1>
+    <a href="{{ route('admin.suppliers.create') }}">Nuevo proveedor</a>
+@endsection
+
+@section('content')
+    @livewire('admin.supplier-index')
+@endsection

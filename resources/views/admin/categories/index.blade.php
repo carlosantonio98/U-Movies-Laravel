@@ -1,10 +1,12 @@
-<x-app-layout>
+@extends('../../layouts/app-admin')
 
-    <h1 class="font-bold text-3xl">Category list</h1>
-    <a href="{{ route('admin.categories.create') }}">New category</a>
+@section('title', 'UMovies')
 
-    <div>
-        @livewire('admin.category-index')
-    </div>
+@section('content_header')
+    <h1>Lista de categorías</h1>
+    <a href="{{ route('admin.categories.create') }}">Nueva categoría</a>
+@endsection
 
-</x-app-layout>
+@section('content')
+    @livewire('admin.category-index')
+@endsection
