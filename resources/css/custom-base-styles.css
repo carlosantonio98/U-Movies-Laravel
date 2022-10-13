@@ -1,3 +1,25 @@
+/* Headline */
+h1 {
+    @apply py-4 text-3xl font-bold;
+}
+
+/* Container */
+.container {
+    @apply mx-auto max-w-7xl px-2;
+}
+
+@media(min-width:640px) {
+    .container {
+        @apply px-6;
+    }
+}
+
+@media(min-width:1024px) {
+    .container {
+        @apply px-8;
+    }
+}
+
 /* Table */
 .table {
     @apply w-full text-sm text-left text-gray-500 dark:text-gray-400;
@@ -23,6 +45,7 @@
     @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
 }
 
+/* Card */
 .card {
     @apply shadow-md sm:rounded-lg;
 }

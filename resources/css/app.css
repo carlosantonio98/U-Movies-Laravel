@@ -1,22 +1,9 @@
-@import "styles.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "./custom-base-styles.css";
 
-/* Container */
-.container {
-    @apply mx-auto max-w-7xl px-2;
-}
+@import "tailwindcss/components";
+@import "./custom-components.css";
 
-@media(min-width:640px) {
-    .container {
-        @apply px-6;
-    }
-}
-
-@media(min-width:1024px) {
-    .container {
-        @apply px-8;
-    }
-}
+@import "tailwindcss/utilities";
+/* @import "./custom-utilities.css"; */
