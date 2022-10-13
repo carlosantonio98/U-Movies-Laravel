@@ -2,11 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\MovieSupplierController;
 use App\Http\Controllers\Admin\SupplierController;
 
-Route::resource('categories', CategoryController::class);
+Route::get('', [HomeController::class, 'index'])->name('admin.home');
+
+Route::resource('categories', CategoryController::class)->names('admin.categories');
 
 Route::resource('movies', MovieController::class)->names('admin.movies');
 
