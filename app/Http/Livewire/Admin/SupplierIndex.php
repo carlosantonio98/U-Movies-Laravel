@@ -20,7 +20,7 @@ class SupplierIndex extends Component
     {
         $suppliers = Supplier::where('name', 'LIKE', '%' . $this->search . '%')
             ->latest('id')
-            ->paginate(4);
+            ->paginate(10);
 
         return view('livewire.admin.supplier-index', compact('suppliers'));
     }

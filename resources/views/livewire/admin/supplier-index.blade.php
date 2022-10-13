@@ -1,43 +1,49 @@
-<div>
+{{-- Content --}}
+<div class="relative overflow-x-auto card">
 
-    <div>
-        <input wire:model='search' type="text" class="form-control" placeholder="Insert the supplier name">
-    </div>
+    {{-- Search --}}
+    <x-input-filter :search="$search" placeholder="Buscar un proveedor" />
 
+    {{-- Table --}}
     @if ($suppliers->count())
-        <table>
+
+        <table class="table w-full">
             <thead>
+
                 <tr>
                     <th>Id</th>
                     <th>Logo</th>
-                    <th>Name</th>
-                    <th>Slug</th>
-                    <th>Actions</th>
+                    <th>Nombre</th>
+                    <th colspan="2"></th>
                 </tr>
+
             </thead>
+
             <tbody>
+
                 @forelse ($suppliers as $supplier)
                     <tr>
                         <td>{{ $supplier->id }}</td>
-                        <td><img src="{{ Storage::url($supplier->logo) }}" alt="Supplier logo"></td>
+                        <td><img src="{{ Storage::url($supplier->logo) }}" alt="Supplier logo" class="w-16 h-16 object-cover"></td>
                         <td>{{ $supplier->name }}</td>
-                        <td>{{ $supplier->slug }}</td>
-                        <td>
-                            <a href="{{ route('admin.suppliers.show', $supplier) }}">View</a>
-                            <a href="{{ route('admin.suppliers.edit', $supplier) }}">Edit</a>
-                        </td>
+                        <td width="10px"><a href="{{ route('admin.suppliers.show', $supplier) }}">Ver</a></td>
+                        <td width="10px"><a href="{{ route('admin.suppliers.edit', $supplier) }}">Editar</a></td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="5">Empty table</td>
+                        <td colspan="5">Sin registros</td>
                     </tr>
                 @endforelse
+
             </tbody>
         </table>
 
-        {{ $suppliers->links() }}
+        <div class="p-4">
+            {{ $suppliers->links() }}
+        </div>
+    
     @else
-        <strong>No hay ningún registro ...</strong>
+        <strong class="inline-block p-4">No hay ningún registro ...</strong>
     @endif
 
 </div>

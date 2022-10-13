@@ -20,7 +20,7 @@ class CategoryIndex extends Component
     {
         $categories = Category::where('name', 'LIKE', '%' . $this->search . '%')
             ->latest('id')
-            ->paginate(4);
+            ->paginate(10);
 
         return view('livewire.admin.category-index', compact('categories'));
     }

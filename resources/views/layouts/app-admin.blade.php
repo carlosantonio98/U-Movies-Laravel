@@ -23,7 +23,7 @@
         <div class="min-h-screen bg-gray-100">
             @livewire('admin.navigation')
 
-            <div class="container">
+            <div class="container py-8">
                 {{-- Header content --}}
                 <header>@yield('content_header')</header>
     

@@ -1,43 +1,52 @@
-<div>
+{{-- Content --}}
+<div class="relative overflow-x-auto card">
 
-    <div>
-        <input wire:model='search' type="text" class="form-control" placeholder="Insert the movie name">
-    </div>
+    {{-- Search --}}
+    <x-input-filter :search="$search" placeholder="Buscar una película" />
 
+    {{-- Table --}}
     @if ($movies->count())
-        <table class="w-full table">
+
+        <table class="table w-full">
             <thead>
+
                 <tr>
                     <th>Id</th>
-                    <th>Name</th>
-                    <th colspan="4">Actions</th>
+                    <th>Nombre</th>
+                    <th colspan="4"></th>
                 </tr>
+
             </thead>
+
             <tbody>
+
                 @forelse ($movies as $movie)
                     <tr>
                         <td>{{ $movie->id }}</td>
                         <td>{{ $movie->name }}</td>
-                        <td><a href="{{ route('admin.movies.show', $movie) }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">View</a></td>
-                        <td><a href="{{ route('admin.movies.edit', $movie) }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Edit</a></td>
-                        <td><a href="{{ route('admin.movie-supplier.create', $movie) }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">Supplier</a><br></td>
+                        <td><a href="{{ route('admin.movies.show', $movie) }}">Ver</a></td>
+                        <td><a href="{{ route('admin.movies.edit', $movie) }}">Editar</a></td>
+                        <td><a href="{{ route('admin.movie-supplier.create', $movie) }}">Proveedor</a><br></td>
                         <td>
                             {!! Form::open(['route' => ['admin.movies.destroy', $movie], 'method' => 'delete']) !!}
-                                {!! Form::submit('Delete', ['class' => 'bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded']) !!}
+                                {!! Form::submit('Eliminar') !!}
                             {!! Form::close() !!}
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4">Empty table</td>
+                        <td colspan="6">Sin registros</td>
                     </tr>
                 @endforelse
+
             </tbody>
         </table>
 
-        {{ $movies->links() }}
+        <div class="p-4">
+            {{ $movies->links() }}
+        </div>
     @else
-        <strong>No hay ningún registro ...</strong>
+        <strong class="inline-block p-4">No hay ningún registro ...</strong>
     @endif
 
 </div>
