@@ -1,4 +1,4 @@
-@props(['movie'])
+@props(['movie', 'isPremiere'])
 
 {{-- Component card movie --}}
 
@@ -54,21 +54,23 @@
 
             </figure>
 
-            {{-- Movie tag --}}
-            <div class="absolute 
-                top-2 
-                right-2 
-                z-10 
-                py-[1px] 
-                px-2
-                rounded
-                text-[12px] 
-                font-bold
-                text-center 
-              bg-green-600 
-              text-white">
-                Estreno
-            </div>
+            @if (isset($isPremiere) && $isPremiere)
+                {{-- Movie tag --}}
+                <div class="absolute 
+                    top-2 
+                    right-2 
+                    z-10 
+                    py-[1px] 
+                    px-2
+                    rounded
+                    text-[12px] 
+                    font-bold
+                    text-center 
+                bg-green-600 
+                text-white">
+                    Estreno
+                </div>
+            @endif
 
             {{-- Movie icon play --}}
             <div class="absolute
