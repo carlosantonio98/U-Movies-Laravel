@@ -15,11 +15,10 @@ class MovieSeeder extends Seeder
         $movies = Movie::factory(20)->create();
 
         foreach($movies as $movie) {
-
-            MovieSupplier::factory(3)->create([
-                'movie_id' => $movie->id,
-                'supplier_id' => rand(1, 3)
-            ]);
+            $movie->suppliers()->attach(
+                rand(1,3), 
+                ['page' => 'https://www.youtube.com/watch?v=n42mdgKaGv0']
+            );
 
             $movie->categories()->attach([
                 rand(1, 4),
