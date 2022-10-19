@@ -32,4 +32,9 @@ class Movie extends Model
     public function suppliers() {
         return $this->belongsToMany('App\Models\Supplier', 'movie_supplier', 'movie_id', 'supplier_id')->withPivot('page');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
