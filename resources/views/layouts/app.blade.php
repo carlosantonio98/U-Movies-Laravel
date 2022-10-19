@@ -10,6 +10,9 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
+        <!-- Flowbite css -->
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -34,5 +37,10 @@
         @stack('modals')
 
         @livewireScripts
+
+        <!-- Flowbite js -->
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+
+        @yield('js')
     </body>
 </html>
