@@ -10,7 +10,7 @@
     duration-300 
     ease-out">
 
-    <a href="#">
+    <a href="{{route('movies.show', $movie)}}">
 
         {{-- Movie picture --}}
         <div class="relative">
@@ -21,7 +21,7 @@
                 pt-[150%]  
                 rounded 
                 overflow-hidden
-              bg-gray-200">{{-- Agregamos el pt para agregar el alto al contenedor de la imagen --}}
+              bg-gray-800">{{-- Agregamos el pt para agregar el alto al contenedor de la imagen --}}
 
                 <img src="{{ Storage::url($movie->img_cover) }}" 
                     class="absolute
@@ -59,15 +59,14 @@
                 <div class="absolute 
                     top-2 
                     right-2 
-                    z-10 
                     py-[1px] 
                     px-2
                     rounded
                     text-[12px] 
                     font-bold
                     text-center 
-                bg-green-600 
-                text-white">
+                  bg-green-600 
+                  text-white">
                     Estreno
                 </div>
             @endif

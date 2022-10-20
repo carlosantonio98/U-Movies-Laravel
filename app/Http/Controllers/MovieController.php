@@ -37,5 +37,10 @@ class MovieController extends Controller
         }
 
         return $latestPremiereMovies;
+{    
+    public function show(Movie $movie) {
+        $movies = Movie::latest('created_at')->limit(6)->get();
+
+        return view('movies.show', compact('movie', 'movies'));
     }
 }
