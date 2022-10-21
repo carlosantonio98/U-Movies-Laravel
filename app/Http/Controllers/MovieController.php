@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use App\Models\Visit;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -45,5 +46,11 @@ class MovieController extends Controller
         Visit::create(['movie_id' => $movie->id]);
 
         return view('movies.show', compact('movie', 'movies'));
+    }
+
+    public function category(Category $category) {
+        $movies = $category->movies()->latest()->paginate(18);
+
+        return view('movies.category', compact('category', 'movies'));
     }
 }
