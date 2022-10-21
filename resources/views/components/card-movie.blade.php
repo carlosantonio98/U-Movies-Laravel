@@ -21,7 +21,7 @@
                 pt-[150%]  
                 rounded 
                 overflow-hidden
-              bg-gray-800">{{-- Agregamos el pt para agregar el alto al contenedor de la imagen --}}
+              bg-[#04071f]">{{-- Agregamos el pt para agregar el alto al contenedor de la imagen --}}
 
                 <img src="{{ Storage::url($movie->img_cover) }}" 
                     class="absolute
