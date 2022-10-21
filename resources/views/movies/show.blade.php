@@ -71,19 +71,24 @@
             -z-10 
             w-full 
             h-full 
-            after:bg-gradient-to-t 
-            after:from-gray-900
+            after:content-['']  
             after:absolute 
             after:top-0 
             after:left-0 
+            after:block 
             after:w-full 
-            after:h-full">
+            after:h-full
+            after:bg-gradient-to-t 
+            after:from-[#000210]
+            after:via-[#00021060]
+            after:to-[#000210]">
 
             <figure>
                 <img class="absolute 
                     top-0 
                     left-0 
-                    -z-10 
+                    -z-10
+                    block 
                     w-full 
                     h-full
                     brightness-50
@@ -144,7 +149,8 @@
                         transition-colors 
                         duration-300 
                         ease-out" 
-                        src="{{ Storage::url($supplier->logo) }}" alt="supplier_img">
+                        src="{{ Storage::url($supplier->logo) }}" 
+                        alt="supplier_img">
                 </a>
             @endforeach
         </div>
