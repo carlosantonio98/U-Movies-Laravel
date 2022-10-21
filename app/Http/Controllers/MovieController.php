@@ -43,4 +43,9 @@ class MovieController extends Controller
 
         return view('movies.show', compact('movie', 'movies'));
     }
+
+    public function movies()
+    {
+        return view('movies.movies');
+    }
 }
