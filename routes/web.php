@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MovieController::class, 'index'])->name('movies.index');
+Route::get('/movies', [MovieController::class, 'movies'])->name('movies.movies');
 
 Route::middleware([
     'auth:sanctum',

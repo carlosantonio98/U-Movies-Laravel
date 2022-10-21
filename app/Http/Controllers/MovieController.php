@@ -38,4 +38,9 @@ class MovieController extends Controller
 
         return $latestPremiereMovies;
     }
+
+    public function movies()
+    {
+        return view('movies.movies');
+    }
 }
