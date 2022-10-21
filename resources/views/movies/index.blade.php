@@ -6,9 +6,9 @@
         {{-- Premiere Section --}}
         <section class="mb-8">
             <div class="flex items-center justify-between mb-3.5">
-                <h3 class="text-2xl text-gray-700 font-bold"><i class="fa-regular fa-star"></i> Premiere</h3>
+                <h3><i class="fa-regular fa-star"></i> Premiere</h3>
                 @if ($totalPremiereMovies > count($premiereMovies))
-                    <a class="text-lg lg:text-sm text-gray-800 hover:underline" href="#">({{ $totalPremiereMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-300 group hover:text-white hover:underline" href="#">({{ $totalPremiereMovies }}) see all</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
@@ -25,9 +25,9 @@
         {{-- Last Uppload Section --}}
         <section class="mb-8">
             <div class="flex items-center justify-between mb-3.5">
-                <h3 class="text-2xl text-gray-700 font-bold"><i class="fa-regular fa-clock"></i> Latest Uploaded</h3>
+                <h3><i class="fa-regular fa-clock"></i> Latest Uploaded</h3>
                 @if ($totalMovies > count($latestMoviesUploaded))
-                    <a class="text-lg lg:text-sm text-gray-800 hover:underline" href="#">({{ $totalMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-300 hover:text-white hover:underline" href="#">({{ $totalMovies }}) see all</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
@@ -43,7 +43,9 @@
         
         {{-- Most Visited Movies Section --}}
         <section class="mb-8">
-            <h3 class="text-2xl text-gray-700 font-bold mb-3.5"><i class="fa-solid fa-magnifying-glass"></i> Most Visited Movies</h3>
+            <div class="flex items-center justify-between mb-3.5">
+                <h3 class=""><i class="fa-solid fa-magnifying-glass"></i> Most Visited Movies</h3>
+            </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
                 @forelse ($mostVisitedMovies as $visit)
                     <x-card-movie :movie="$visit->movie" :isPremiere="$visit->movie->premier == 2"></x-card-movie>
