@@ -42,6 +42,8 @@ class MovieController extends Controller
     public function show(Movie $movie) {
         $movies = Movie::latest('created_at')->limit(6)->get();
 
+        Visit::create(['movie_id' => $movie->id]);
+
         return view('movies.show', compact('movie', 'movies'));
     }
 }

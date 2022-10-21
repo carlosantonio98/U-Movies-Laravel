@@ -9,6 +9,8 @@ class Visit extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['movie_id'];
+
     public function movie() {
         return $this->belongsTo('App\Models\Movie');
     }
