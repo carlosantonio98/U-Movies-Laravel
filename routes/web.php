@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MovieController::class, 'index'])->name('movies.index');
-Route::get('movies/{movie}', [MovieController::class, 'show'])->name('movies.show');
 Route::get('/movies', [MovieController::class, 'movies'])->name('movies.movies');
+Route::get('movies/new', [MovieController::class, 'new'])->name('movies.new');
+Route::get('movies/premiere', [MovieController::class, 'premiere'])->name('movies.premiere');
+Route::get('movies/{movie}/show', [MovieController::class, 'show'])->name('movies.show');
 Route::get('movies/category/{category}', [MovieController::class, 'category'])->name('movies.category');
 
 Route::middleware([

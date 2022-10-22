@@ -58,9 +58,9 @@
                         </div>
                     </div>
 
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">News</a>
+                    <a href="{{route('movies.new')}}" class="@if(request()->routeIs('movies.new')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">News</a>
                     
-                    <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
+                    <a href="{{route('movies.premiere')}}" class="@if(request()->routeIs('movies.premiere')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
                 </div>
 
             </div>
@@ -108,9 +108,9 @@
                 </div>
             </div>
             
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm font-medium">News</a>
+            <a href="{{route('movies.new')}}" class="@if(request()->routeIs('movies.new')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">News</a>
                     
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
+            <a href="{{route('movies.premiere')}}" class="@if(request()->routeIs('movies.premiere')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
 
         </div>
     </div>
