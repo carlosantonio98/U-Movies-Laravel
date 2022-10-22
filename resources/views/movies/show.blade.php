@@ -42,16 +42,17 @@
                 <i class="fas fa-calendar mr-4"></i>
 
                 @foreach ($movie->categories as $category)
-                    <a href="#" class="flex
-                        py-1 
-                        px-2
-                        rounded-full
-                        text-sm
-                        bg-blue-700 
-                        hover:bg-blue-800  
-                        transition-colors 
-                        duration-300 
-                        ease-out">
+                    <a href="{{route('movies.category', $category)}}" 
+                        class="flex
+                            py-1 
+                            px-2
+                            rounded-full
+                            text-sm
+                            bg-blue-700 
+                            hover:bg-blue-800  
+                            transition-colors 
+                            duration-300 
+                            ease-out">
 
                         {{ $category->name }}
                     </a>

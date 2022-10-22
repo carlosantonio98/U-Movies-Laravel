@@ -32,12 +32,12 @@
                 
                 {{-- Pc Menu --}}
                 <div class="hidden sm:ml-6 sm:block">
-                    <a href="#" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="/" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Home</a>
 
                     {{-- Categories dropdown --}}
                     <div class="relative inline-block text-left" x-data="{ open: false }">
                         <div>
-                            <button x-on:click=" open = true " type="button" class="flex text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            <button x-on:click=" open = true " type="button" class="flex @if(request()->routeIs('movies.category')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
                                 
                                 Categories
                                 <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -51,7 +51,7 @@
                             <div class="py-1" role="none">
 
                                 @foreach ($categories as $category)
-                                    <a href="#" class="text-gray-700 hover:text-green-600 block px-4 py-2 text-sm font-medium" role="menuitem" tabindex="-1" id="menu-item-0">{{ $category->name }}</a>
+                                    <a href="{{route('movies.category', $category)}}" class="text-gray-700 hover:text-green-600 block px-4 py-2 text-sm font-medium" role="menuitem" tabindex="-1" id="menu-item-0">{{ $category->name }}</a>
                                 @endforeach
 
                             </div>
@@ -82,12 +82,12 @@
     {{-- Mobile menu --}}
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away=" open = false ">
         <div class="space-y-1 px-2 pt-2 pb-3">
-            <a href="#" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="/" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Home</a>
 
             {{-- Categories dropdown --}}
             <div class="relative w-full inline-block text-left" x-data="{ open: false }">
                 <div>
-                    <button x-on:click=" open = true " type="button" class="w-full flex justify-between text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                    <button x-on:click=" open = true " type="button" class="w-full flex justify-between @if(request()->routeIs('movies.category')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium" id="menu-button" aria-expanded="true" aria-haspopup="true">
                         
                         Categories
                         <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -101,7 +101,7 @@
                     <div class="py-1" role="none">
 
                         @foreach ($categories as $category)
-                            <a href="#" class="text-gray-700 hover:text-green-600 block px-4 py-2 text-sm font-medium" role="menuitem" tabindex="-1" id="menu-item-0">{{ $category->name }}</a>
+                            <a href="{{route('movies.category', $category)}}" class="text-gray-700 hover:text-green-600 block px-4 py-2 text-sm font-medium" role="menuitem" tabindex="-1" id="menu-item-0">{{ $category->name }}</a>
                         @endforeach
 
                     </div>
