@@ -10,24 +10,23 @@
         {{-- Input search --}}
         <input wire:model='search' 
             type="text" 
-            class="bg-gray-50 
-                    border 
-                   border-gray-300 
-                   text-green-800 
+            class="bg-gray-800 
+                   text-green-400 
+                   border 
                    text-base 
                    rounded-lg
-                   focus:ring-green-500 
-                   focus:border-green-500 
-                   focus:shadow-lg
-                   focus:shadow-green-100
+                   focus:ring-green-600 
+                   focus:border-green-600
+                   valid:border-green-600
                    w-full 
                    pl-[52px]
                    pr-8
                    py-4"
-            placeholder="Search a movie...">
+            placeholder="Search a movie..."
+            required>
     </div>
 
-    <hr class="mb-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+    <hr class="mb-3.5 h-px bg-gray-700 border-0">
     
     <div class="flex items-center justify-between flex-wrap gap-2 mb-3.5">
         <h3 class="text-2xl text-gray-700 font-bold">
