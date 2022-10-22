@@ -20,7 +20,7 @@ class IndexMovieSearch extends Component
     {
         $movies = Movie::where('name', 'LIKE', '%' . $this->search . '%')
             ->latest('id')
-            ->paginate(12);
+            ->paginate(18);
         
         return view('livewire.index-movie-search', compact('movies'));
     }

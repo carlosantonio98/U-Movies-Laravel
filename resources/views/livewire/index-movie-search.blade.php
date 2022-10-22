@@ -29,11 +29,11 @@
     <hr class="mb-3.5 h-px bg-gray-700 border-0">
     
     <div class="flex items-center justify-between flex-wrap gap-2 mb-3.5">
-        <h3 class="text-2xl text-gray-700 font-bold">
+        <h3>
             <i class="fa-solid fa-clapperboard"></i> 
             {{ !empty($search) ? 'Movies: ' . $search : 'Movies' }}
         </h3>
-        <p class="text-sm text-gray-800">{{ $movies->count() }} / {{ $movies->total() }} Movies</p>
+        <p class="text-sm text-gray-400">{{ $movies->count() }} / {{ $movies->total() }} Movies</p>
     </div>
     
     <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-8">
