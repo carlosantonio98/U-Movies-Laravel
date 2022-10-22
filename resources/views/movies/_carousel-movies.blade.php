@@ -48,7 +48,7 @@
                         h-full 
                         w-full 
                         object-cover
-                        brightness-50" 
+                        brightness-75" 
                         alt="Movie cover">
                 </a>
             </div>
