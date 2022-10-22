@@ -8,7 +8,7 @@
             <div class="flex items-center justify-between mb-3.5">
                 <h3><i class="fa-regular fa-star"></i> Premiere</h3>
                 @if ($totalPremiereMovies > count($premiereMovies))
-                    <a class="text-lg lg:text-sm text-gray-300 group hover:text-white hover:underline" href="#">({{ $totalPremiereMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="#">({{ $totalPremiereMovies }}) see all</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
@@ -20,14 +20,14 @@
             </div>
         </section>
 
-        <hr class="mb-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+        <hr class="mb-3.5 h-px bg-gray-700 border-0">
 
         {{-- Last Uppload Section --}}
         <section class="mb-8">
             <div class="flex items-center justify-between mb-3.5">
                 <h3><i class="fa-regular fa-clock"></i> Latest Uploaded</h3>
                 @if ($totalMovies > count($latestMoviesUploaded))
-                    <a class="text-lg lg:text-sm text-gray-300 hover:text-white hover:underline" href="#">({{ $totalMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="#">({{ $totalMovies }}) see all</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
@@ -39,7 +39,7 @@
             </div>
         </section>
 
-        <hr class="mb-8 h-px bg-gray-200 border-0 dark:bg-gray-700">
+        <hr class="mb-3.5 h-px bg-gray-700 border-0">
         
         {{-- Most Visited Movies Section --}}
         <section class="mb-8">
