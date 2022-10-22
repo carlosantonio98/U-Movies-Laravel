@@ -49,8 +49,23 @@ class MovieController extends Controller
     }
 
     public function category(Category $category) {
+        $title = $category->name;
         $movies = $category->movies()->latest()->paginate(18);
 
-        return view('movies.category', compact('category', 'movies'));
+        return view('movies.category', compact('title', 'movies'));
+    }
+
+    public function new() {
+        $title = 'News';
+        $movies = Movie::latest()->paginate(18);
+
+        return view('movies.new', compact('title', 'movies'));
+    }
+
+    public function premiere() {
+        $title = 'Premiere';
+        $movies = Movie::wherePremier(2)->latest()->paginate(18);
+
+        return view('movies.premiere', compact('title', 'movies'));
     }
 }
