@@ -39,7 +39,12 @@ class MovieController extends Controller
 
     public function new() {
         $title = 'News';
-        $movies = Movie::latest()->paginate(18);
+        $currentMonth = date('m');
+        $currentYear = date('Y');
+        $movies = Movie::whereMonth('created_at', '=', $currentMonth)
+            ->whereYear('created_at', '=', $currentYear)
+            ->latest()
+            ->paginate(18);
 
         return view('movies.new', compact('title', 'movies'));
     }
