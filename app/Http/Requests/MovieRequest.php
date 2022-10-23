@@ -28,10 +28,12 @@ class MovieRequest extends FormRequest
 
         $rules = [
             'name' => 'required',
+            'year' => 'required|digits:4|integer',
             'slug' => "required|unique:movies",
             'premier' => 'required|in:1,2',  // premier es requerido y solo puede tomar el valor 1 y el valor de 2
             'img_cover' => 'required|image',
             'img_slide' => 'required|image',
+            'trailer' => 'required|url',
             'categories' => 'required',
             'extract' => 'required',
             'description' => 'required'

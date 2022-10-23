@@ -8,6 +8,15 @@
 </div>
 
 <div>
+    {!! Form::label('year', 'Movie year') !!}
+    {!! Form::text('year') !!}
+
+    @error('year')
+        <small><b>{{ $message }}</b></small>
+    @enderror
+</div>
+
+<div>
     {!! Form::label('slug', 'Slug') !!}
     {!! Form::text('slug') !!}
 
@@ -97,6 +106,15 @@
     {!! Form::textarea('description') !!}
 
     @error('description')
+        <small><b>{{ $message }}</b></small>
+    @enderror
+</div>
+
+<div>
+    {!! Form::label('trailer', 'Trailer') !!}
+    {!! Form::url('trailer') !!}
+
+    @error('trailer')
         <small><b>{{ $message }}</b></small>
     @enderror
 </div>
