@@ -27,7 +27,7 @@
             
             {{-- Movie name --}}
             <header>
-                <h2 class="text-white">{{ $movie->name }}</h2>
+                <h2 class="text-white">{{ $movie->name }} ({{ $movie->year }})</h2>
             </header>
 
             {{-- Movie tags --}}
@@ -112,7 +112,7 @@
         <iframe class="w-full 
             aspect-video 
             rounded" 
-            src="https://www.youtube.com/embed/83Kz1-nNxiI">
+            src="{{$movie->trailer}}">
         </iframe>
     </article>
 

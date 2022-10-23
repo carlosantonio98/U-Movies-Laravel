@@ -49,7 +49,7 @@
                     text-center
                   bg-blue-700 
                   text-white">
-                    2022
+                    {{ $movie->year }}
                 </span>
 
             </figure>

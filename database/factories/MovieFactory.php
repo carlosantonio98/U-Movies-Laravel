@@ -19,10 +19,12 @@ class MovieFactory extends Factory
 
         return [
             'name' => $name,
+            'year' => $this->faker->year('+10 years'),
             'extract' => $this->faker->text(250),
             'description' => $this->faker->text(2000),
             'img_cover' => 'covers/' . $coverName,
             'img_slide' => 'slides/' . $slideName,
+            'trailer' => $this->faker->randomElement(['https://www.youtube.com/embed/i9VSSbXb0N4', 'https://www.youtube.com/embed/BPjbiZQmBI4']),
             'slug' => Str::slug($name),
             'premier' => $this->faker->randomElement([1, 2]),
             'user_id' => User::all()->random()->id
