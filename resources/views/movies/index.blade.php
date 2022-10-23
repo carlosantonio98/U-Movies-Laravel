@@ -32,7 +32,7 @@
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
                 @forelse ($latestMoviesUploaded as $movie)
-                    <x-card-movie :$movie></x-card-movie>
+                    <x-card-movie :$movie :isPremiere="$movie->premier == 2"></x-card-movie>
                 @empty
                     <p>No movies</p>
                 @endforelse
