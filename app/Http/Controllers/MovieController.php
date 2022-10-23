@@ -9,35 +9,17 @@ use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public function index() {
-        $latestMoviesUploaded = Movie::latest()->limit(12)->get();
-        $premiereMovies = Movie::latest()->wherePremier(2)->limit(12)->get();
-        $latestPremiereMovies = $this->getLatestPremiereMoviesForCarousel();
-        $totalPremiereMovies = Movie::wherePremier(2)->count();
-        $totalMovies = Movie::count();
-        $mostVisitedMovies = Visit::with('movie')->groupBy('movie_id')->limit(12)->get(['movie_id']);
+    public function index()
+    {
+        $title = 'Movies';
+        $movies = Movie::latest()->paginate(18);
 
-        return view('movies.index', compact('latestMoviesUploaded','premiereMovies','latestPremiereMovies','totalPremiereMovies','totalMovies','mostVisitedMovies'));
+        return view('movies.index', compact('title', 'movies'));
     }
 
-    private function getLatestPremiereMoviesForCarousel()
+    public function search()
     {
-        $latestPremiereMovies = [];
-        $imageLatestPremiereMovies = Movie::latest()->wherePremier(1)->limit(6)->get(['img_slide', 'name']);
-        $position = 0;
-
-        foreach ($imageLatestPremiereMovies as $movie) {
-            $latestPremiereMovies[] = [
-                'position' => $position,
-                'image' => $movie->img_slide,
-                'name' => $movie->name,
-                'idCarouselItem' => 'carousel-item-' . ($position + 1),
-                'idCarouselIndicator' => 'carousel-indicator-' . ($position + 1),
-            ];
-            $position++;
-        }
-
-        return $latestPremiereMovies;
+        return view('movies.search');
     }
 
     public function show(Movie $movie) {
@@ -46,11 +28,6 @@ class MovieController extends Controller
         Visit::create(['movie_id' => $movie->id]);
 
         return view('movies.show', compact('movie', 'movies'));
-    }
-
-    public function movies()
-    {
-        return view('movies.movies');
     }
     
     public function category(Category $category) {
@@ -62,7 +39,12 @@ class MovieController extends Controller
 
     public function new() {
         $title = 'News';
-        $movies = Movie::latest()->paginate(18);
+        $currentMonth = date('m');
+        $currentYear = date('Y');
+        $movies = Movie::whereMonth('created_at', '=', $currentMonth)
+            ->whereYear('created_at', '=', $currentYear)
+            ->latest()
+            ->paginate(18);
 
         return view('movies.new', compact('title', 'movies'));
     }

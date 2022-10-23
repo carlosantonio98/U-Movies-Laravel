@@ -32,7 +32,13 @@
                 
                 {{-- Pc Menu --}}
                 <div class="hidden sm:ml-6 sm:block">
-                    <a href="/" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="{{route('home')}}" class="@if(request()->routeIs('home')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Home</a>
+
+                    <a href="{{route('movies.index')}}" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Movies</a>
+                    
+                    <a href="{{route('movies.new')}}" class="@if(request()->routeIs('movies.new')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">News</a>
+                    
+                    <a href="{{route('movies.premiere')}}" class="@if(request()->routeIs('movies.premiere')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
 
                     {{-- Categories dropdown --}}
                     <div class="relative inline-block text-left" x-data="{ open: false }">
@@ -57,10 +63,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <a href="{{route('movies.new')}}" class="@if(request()->routeIs('movies.new')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">News</a>
                     
-                    <a href="{{route('movies.premiere')}}" class="@if(request()->routeIs('movies.premiere')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
                 </div>
 
             </div>
@@ -69,7 +72,7 @@
             <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
                 {{-- Button search --}}
-                <a href="#" class="rounded-full bg-[#000210] p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#000210]">
+                <a href="{{route('movies.search')}}" class="rounded-full bg-[#000210] p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#000210]">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </a>
 
@@ -82,7 +85,13 @@
     {{-- Mobile menu --}}
     <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away=" open = false ">
         <div class="space-y-1 px-2 pt-2 pb-3">
-            <a href="/" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Home</a>
+            <a href="{{route('home')}}" class="@if(request()->routeIs('home')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Home</a>
+
+            <a href="{{route('movies.index')}}" class="@if(request()->routeIs('movies.index')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Movies</a>
+            
+            <a href="{{route('movies.new')}}" class="@if(request()->routeIs('movies.new')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">News</a>
+                    
+            <a href="{{route('movies.premiere')}}" class="@if(request()->routeIs('movies.premiere')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
 
             {{-- Categories dropdown --}}
             <div class="relative w-full inline-block text-left" x-data="{ open: false }">
@@ -107,11 +116,6 @@
                     </div>
                 </div>
             </div>
-            
-            <a href="{{route('movies.new')}}" class="@if(request()->routeIs('movies.new')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">News</a>
-                    
-            <a href="{{route('movies.premiere')}}" class="@if(request()->routeIs('movies.premiere')) bg-gray-700 text-white @else text-gray-300 hover:bg-gray-700 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Premiere</a>
-
         </div>
     </div>
 

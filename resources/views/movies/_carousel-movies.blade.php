@@ -26,7 +26,7 @@
                     {{ $movie['name'] }}
                 </span>
 
-                <a href="#" 
+                <a href="{{ route('movies.show', $movie['slug']) }}" 
                     class="relative
                     block 
                     h-full 
