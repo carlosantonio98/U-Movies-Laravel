@@ -30,8 +30,8 @@
     
     <div class="flex items-center justify-between flex-wrap gap-2 mb-3.5">
         <h3>
-            <i class="fa-solid fa-clapperboard"></i> 
-            {{ !empty($search) ? 'Movies: ' . $search : 'Movies' }}
+            <i class="fa-solid fa-magnifying-glass"></i> 
+            {{ !empty($search) ? 'Search: ' . $search : 'Search' }}
         </h3>
         <p class="text-sm text-gray-400">{{ $movies->count() }} / {{ $movies->total() }} Movies</p>
     </div>
