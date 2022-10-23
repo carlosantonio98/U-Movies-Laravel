@@ -8,7 +8,7 @@
             <div class="flex items-center justify-between mb-3.5">
                 <h3><i class="fa-regular fa-star"></i> Premiere</h3>
                 @if ($totalPremiereMovies > count($premiereMovies))
-                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="#">({{ $totalPremiereMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="{{ route('movies.premiere') }}">({{ $totalPremiereMovies }}) see all</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
@@ -27,7 +27,7 @@
             <div class="flex items-center justify-between mb-3.5">
                 <h3><i class="fa-regular fa-clock"></i> Latest Uploaded</h3>
                 @if ($totalMovies > count($latestMoviesUploaded))
-                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="#">({{ $totalMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="{{ route('movies.new') }}">({{ $totalMovies }}) see all</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
@@ -44,7 +44,7 @@
         {{-- Most Visited Movies Section --}}
         <section class="mb-8">
             <div class="flex items-center justify-between mb-3.5">
-                <h3 class=""><i class="fa-solid fa-magnifying-glass"></i> Most Visited Movies</h3>
+                <h3><i class="fa-solid fa-magnifying-glass"></i> Most Visited Movies</h3>
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
                 @forelse ($mostVisitedMovies as $visit)
