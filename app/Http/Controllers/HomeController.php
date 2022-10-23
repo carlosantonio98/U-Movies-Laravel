@@ -39,7 +39,7 @@ class HomeController extends Controller
     private function getLatestPremiereMoviesForCarousel()
     {
         $latestPremiereMovies = [];
-        $imageLatestPremiereMovies = Movie::latest()->wherePremier(1)->limit(6)->get(['img_slide', 'name']);
+        $imageLatestPremiereMovies = Movie::latest()->wherePremier(2)->limit(6)->get(['img_slide', 'name', 'slug']);
         $position = 0;
 
         foreach ($imageLatestPremiereMovies as $movie) {
@@ -47,6 +47,7 @@ class HomeController extends Controller
                 'position' => $position,
                 'image' => $movie->img_slide,
                 'name' => $movie->name,
+                'slug' => $movie->slug,
                 'idCarouselItem' => 'carousel-item-' . ($position + 1),
                 'idCarouselIndicator' => 'carousel-indicator-' . ($position + 1),
             ];
