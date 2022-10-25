@@ -23,18 +23,23 @@
 
     </head>
     <body class="font-sans antialiased bg-[#000210]">
-        <x-jet-banner />
 
-        <div class="min-h-screen">
-            @livewire('navigation')
 
-            <!-- Page Content -->
-            <main class="text-white">
-                {{ $slot }}
-            </main>
-        </div>
+        @livewire('navigation')
+
+        <!-- Page Content -->
+        <main class="min-h-screen text-white">
+            {{ $slot }}
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full p-3 text-center text-sm text-white bg-gray-700">
+            umovies &#169; 2022
+        </footer>
 
         @stack('modals')
+
+
 
         @livewireScripts
 
@@ -42,5 +47,7 @@
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 
         @yield('js')
+
+
     </body>
 </html>
