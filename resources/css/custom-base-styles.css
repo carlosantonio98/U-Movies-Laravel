@@ -11,6 +11,23 @@ h2 {
     @apply text-4xl;
 }
 
+/* Scroll top */
+.scrolltop {
+    @apply fixed right-4 bottom-[-20%] flex justify-center items-center p-[0.3rem] bg-green-600 rounded-lg z-10 transition-all duration-300 ease-out invisible;
+}
+
+.scrolltop:hover {
+    @apply bg-green-700;
+}
+
+.scrolltop__icon {
+    @apply text-2xl text-white;
+}
+
+/* Show scrolltop */
+.scroll-top {
+    @apply visible bottom-6;
+}
 
 /* Container */
 .container {
