@@ -14,13 +14,13 @@
                 ease-in-out">
 
                 <span class="absolute 
-                    text-sm 
-                    md:text-lg 
+                    text-base 
+                    md:text-2xl 
                     font-semibold 
                     text-white 
                     text-center 
                     -translate-x-1/2 
-                    bottom-10 
+                    bottom-[48px] 
                     left-1/2 
                     z-10">
                     {{ $movie['name'] }}
@@ -50,6 +50,17 @@
                         object-cover
                         brightness-75" 
                         alt="Movie cover">
+
+                    <div class="absolute
+                        top-1/2
+                        left-1/2
+                        -translate-x-1/2
+                        -translate-y-1/2
+                        z-10  
+                        text-5xl
+                        fa-solid fa-play  
+                      text-white">
+                    </div>
                 </a>
             </div>
         @endforeach
