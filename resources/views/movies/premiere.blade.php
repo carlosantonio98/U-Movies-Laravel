@@ -1,4 +1,10 @@
-<x-app-layout>
+@extends('../../layouts/app')
+
+@section('title', 'UMovies | Premiere movies')
+
+@section('description', 'Descripcion de la pagina')
+
+@section('content')
 
     <div class="container py-8">
 
@@ -13,4 +19,4 @@
 
     </div>
 
-</x-app-layout>
+@stop

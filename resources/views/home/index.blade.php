@@ -1,5 +1,11 @@
-<x-app-layout>
-    
+@extends('../../layouts/app')
+
+@section('title', 'UMovies | Home')
+
+@section('description', 'Descripcion de la pagina')
+
+@section('content')
+
     @include('movies._carousel-movies')
 
     <div class="container py-8">
@@ -56,4 +62,4 @@
         </section>
     </div>
 
-</x-app-layout>
+@stop

@@ -1,13 +1,19 @@
-<x-app-layout>
-    
+@extends('../../layouts/app')
+
+@section('title', 'UMovies | Show movie')
+
+@section('description', 'Descripcion de la pagina')
+
+@section('content')
+
     {{-- Details movie --}}
-    <div class="relative 
+    <article class="relative 
         w-full 
         min-h-min-[1000px] 
         text-white">
 
         {{-- Info movie --}}
-        <article class="container 
+        <div class="container 
             pt-32 
             pb-16">
 
@@ -24,7 +30,7 @@
                     src="{{ Storage::url($movie->img_cover) }}" 
                     alt="{{$movie->name}}_cover">
             </figure>
-            
+
             {{-- Movie name --}}
             <header>
                 <h2 class="text-white">{{ $movie->name }} ({{ $movie->year }})</h2>
@@ -63,7 +69,7 @@
             </footer>
 
             <div class="text-sm mt-4">{!! $movie->description !!}</div>
-        </article>
+        </div>
 
         {{-- Image slide --}}
         <div class="absolute 
@@ -98,7 +104,7 @@
                     alt="{{$movie->name}}_slide">
             </figure>
         </div>
-    </div>
+    </article>
 
     {{-- Trailer --}}
     <article class="container 
@@ -179,4 +185,4 @@
 
     </article>
 
-</x-app-layout>
+@stop
