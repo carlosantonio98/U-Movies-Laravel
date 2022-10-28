@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\Visit;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
     public function index()
     {
-        $title = 'Movies';
+        $title = 'Películas';
         $movies = Movie::latest()->paginate(18);
 
         return view('movies.index', compact('title', 'movies'));
@@ -38,7 +37,7 @@ class MovieController extends Controller
     }
 
     public function new() {
-        $title = 'News';
+        $title = 'Últimas subida';
         $currentMonth = date('m');
         $currentYear = date('Y');
         $movies = Movie::whereMonth('created_at', '=', $currentMonth)
@@ -50,7 +49,7 @@ class MovieController extends Controller
     }
 
     public function premiere() {
-        $title = 'Premiere';
+        $title = 'Estrenos';
         $movies = Movie::wherePremier(2)->latest()->paginate(18);
 
         return view('movies.premiere', compact('title', 'movies'));
