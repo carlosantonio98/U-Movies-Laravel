@@ -1,8 +1,8 @@
 @extends('../../layouts/app')
 
-@section('title', 'UMovies | Home')
+@section('title', 'Umovies | Ver o Descargar Películas Gratis | Encuentra tu película')
 
-@section('description', 'Descripcion de la pagina')
+@section('description', '¿Ya sabes qué película ver pero no sabes dónde encontrarla? En Umovies, tu sitio online, puede buscar un título y encontrar muchas opciones para ver o descargarlo gratis.')
 
 @section('content')
 

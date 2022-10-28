@@ -1,8 +1,8 @@
 @extends('../../layouts/app')
 
-@section('title', 'UMovies | Show movie')
+@section('title', "$movie->name (Película $movie->year) | Umovies: ver películas")
 
-@section('description', 'Descripcion de la pagina')
+@section('description', "Película $movie->name: la película completa disponible online. Ver o descargar $movie->name: película gratis.")
 
 @section('content')
 
