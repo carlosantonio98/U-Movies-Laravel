@@ -18,7 +18,9 @@ class SupplierFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'logo' => 'logos/' . $imageName
+            'logo' => 'logos/' . $imageName,
+            'allow_see' => $this->faker->numberBetween(1,2),
+            'allow_donwload' => $this->faker->numberBetween(1,2),
         ];
     }
 }

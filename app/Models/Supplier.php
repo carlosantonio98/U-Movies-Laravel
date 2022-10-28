@@ -12,7 +12,9 @@ class Supplier extends Model
     protected $fillable = [
         'name',
         'slug',
-        'logo'
+        'logo',
+        'allow_see',
+        'allow_download',
     ];
 
     public function movies() {

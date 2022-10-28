@@ -4,6 +4,12 @@
 <p>Slug: {{ $supplier->slug }}</p>
 <p>Created {{ $supplier->created_at->diffForHumans() }}</p>
 
+<p>Puede ver: {{ $supplier->allow_see == 1 ? 'No' : 'Si' }}</p>
+
+<p>Puede dercargar: {{ $supplier->allow_download == 1 ? 'No' : 'Si' }}</p>
+
+
+
 <a href="{{ route('admin.suppliers.index') }}">Go back</a>
 
 @can('update', $supplier)

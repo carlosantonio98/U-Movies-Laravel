@@ -32,6 +32,24 @@
         @enderror
     </div>
 
+    <div>
+        {!! Form::label('allow_see', 'Allow see?') !!}
+        {!! Form::checkbox('allow_see', 2, $supplier->allow_see == 1 ? 0 : 1) !!}
+
+        @error('allow_see')
+            <small><b>{{ $message }}</b></small>
+        @enderror
+    </div>
+    
+    <div>
+        {!! Form::label('allow_download', 'Allow download?') !!}
+        {!! Form::checkbox('allow_download', 2, $supplier->allow_download == 1 ? 0 : 1) !!}
+
+        @error('allow_download')
+            <small><b>{{ $message }}</b></small>
+        @enderror
+    </div>
+
     {!! Form::submit('Save changes') !!}
     <a href="{{ route('admin.suppliers.index') }}">Go back</a>
     
