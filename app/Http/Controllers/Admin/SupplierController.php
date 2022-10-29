@@ -103,6 +103,12 @@ class SupplierController extends Controller
             'logo' => $request->hasFile('logo') ? 'required|image' : 'nullable'
         ]);
 
+        // Set the data if it's not defined in the request
+        $request->merge([
+            'allow_see' => $request->get('allow_see') ?? 1,
+            'allow_download' => $request->get('allow_download') ?? 1,
+        ]);
+
         $supplier->fill($request->all());
 
         if ($request->hasFile('logo') && $request->file('logo')->isValid()) {
