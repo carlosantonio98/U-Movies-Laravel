@@ -1,8 +1,8 @@
 @extends('../../layouts/app')
 
-@section('title', 'UMovies | Movies')
+@section('title', 'Ver películas online | lista de películas | Umovies')
 
-@section('description', 'Descripcion de la pagina')
+@section('description', 'Vea y disfrute del mejor listado de películas que Umovies tiene disponible para ti. Visite y elija su próxima película.')
 
 @section('content')
 

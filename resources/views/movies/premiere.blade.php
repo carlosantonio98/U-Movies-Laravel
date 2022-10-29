@@ -1,8 +1,12 @@
 @extends('../../layouts/app')
 
-@section('title', 'UMovies | Premiere movies')
+@php
+    $date = date('Y');  
+@endphp
 
-@section('description', 'Descripcion de la pagina')
+@section('title', "Ver películas online $date | lista de películas | Umovies")
+
+@section('description', "Vea y disfrute del mejor listado de películas de estreno $date que Umovies tiene disponible para ti. Visite y elija su próxima película.")
 
 @section('content')
 

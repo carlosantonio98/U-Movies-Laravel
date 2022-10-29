@@ -22,7 +22,7 @@
                    pl-[52px]
                    pr-8
                    py-4"
-            placeholder="Search a movie..."
+            placeholder="Buscar una película..."
             required>
     </div>
 
@@ -31,16 +31,16 @@
     <div class="flex items-center justify-between flex-wrap gap-2 mb-3.5">
         <h3>
             <i class="fa-solid fa-magnifying-glass"></i> 
-            {{ !empty($search) ? 'Search: ' . $search : 'Search' }}
+            {{ !empty($search) ? 'Búsqueda: ' . $search : 'Búsqueda' }}
         </h3>
-        <p class="text-sm text-gray-400">{{ $movies->count() }} / {{ $movies->total() }} Movies</p>
+        <p class="text-sm text-gray-400">{{ $movies->count() }} / {{ $movies->total() }} Películas</p>
     </div>
     
     <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5 mb-4">
         @forelse ($movies as $movie)
             <x-card-movie :$movie :isPremiere="$movie->premier"></x-card-movie>
         @empty
-            <p>No movies</p>
+            <p>Sin películas</p>
         @endforelse
     </div>
     

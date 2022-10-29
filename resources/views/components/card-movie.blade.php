@@ -1,7 +1,5 @@
 @props(['movie', 'isPremiere'])
 
-{{-- Component card movie --}}
-
 {{-- Movie item --}}
 <div class="relative 
     group 
@@ -21,7 +19,7 @@
                 pt-[150%]  
                 rounded 
                 overflow-hidden
-              bg-[#04071f]">{{-- Agregamos el pt para agregar el alto al contenedor de la imagen --}}
+              bg-[#04071f]">
 
                 <img src="{{ Storage::url($movie->img_cover) }}" 
                     class="absolute
@@ -36,7 +34,7 @@
                         transition-colors 
                         duration-300 
                         ease-out" 
-                    alt="{{ $movie->name }}">
+                    alt="{{ $movie->name }}: portada vertical | Umovies">
 
                 <span class="absolute 
                     bottom-2 

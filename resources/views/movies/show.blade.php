@@ -1,8 +1,8 @@
 @extends('../../layouts/app')
 
-@section('title', 'UMovies | Show movie')
+@section('title', "$movie->name (Película $movie->year) | Umovies: ver películas")
 
-@section('description', 'Descripcion de la pagina')
+@section('description', "Película $movie->name: la película completa disponible online. Ver o descargar $movie->name: película gratis.")
 
 @section('content')
 
@@ -28,7 +28,7 @@
                     h-full 
                     object-cover" 
                     src="{{ Storage::url($movie->img_cover) }}" 
-                    alt="{{$movie->name}}_cover">
+                    alt="{{$movie->name}}: portada vertical | Umovies">
             </figure>
 
             {{-- Movie name --}}
@@ -101,7 +101,7 @@
                     brightness-50
                     object-cover"  
                     src="{{ Storage::url($movie->img_slide) }}" 
-                    alt="{{$movie->name}}_slide">
+                    alt="{{$movie->name}}: portada horizontal | Umovies">
             </figure>
         </div>
     </article>
@@ -157,7 +157,7 @@
                         duration-300 
                         ease-out" 
                         src="{{ Storage::url($supplier->logo) }}" 
-                        alt="supplier_img">
+                        alt="Logo de {{ $supplier->name }} | Umovies">
                 </a>
             @endforeach
         </div>
@@ -170,7 +170,7 @@
         text-center 
         text-white">
 
-        <h3>Nuevos</h3>
+        <h3>Últimas subida</h3>
 
         <div class="grid 
             grid-cols-2 

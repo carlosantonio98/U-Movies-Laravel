@@ -49,7 +49,7 @@
                         w-full 
                         object-cover
                         brightness-75" 
-                        alt="Movie cover">
+                        alt="{{ $movie['name'] }}: portada horizontal | Umovies">
 
                     <div class="absolute
                         top-1/2
