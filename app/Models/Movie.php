@@ -37,4 +37,14 @@ class Movie extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    public function getSuppliersThatAllowToSeeAttribute()
+    {
+        return $this->suppliers()->whereAllowSee(2)->whereAllowDownload(1)->get();
+    }
+
+    public function getSuppliersThatAllowToSeeAndDownloadAttribute()
+    {
+        return $this->suppliers()->whereAllowSee(2)->whereAllowDownload(2)->get();
+    }
 }
