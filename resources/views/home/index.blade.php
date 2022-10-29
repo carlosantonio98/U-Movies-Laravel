@@ -14,7 +14,7 @@
             <div class="flex items-center justify-between mb-3.5">
                 <h3><i class="fa-regular fa-star"></i> Estrenos</h3>
                 @if ($totalPremiereMovies > count($premiereMovies))
-                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="{{ route('movies.premiere') }}">({{ $totalPremiereMovies }}) see all</a>
+                    <a class="text-lg lg:text-sm text-gray-400 group hover:text-gray-300 hover:underline" href="{{ route('movies.premiere') }}">({{ $totalPremiereMovies }}) ver todo</a>
                 @endif
             </div>
             <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5">
