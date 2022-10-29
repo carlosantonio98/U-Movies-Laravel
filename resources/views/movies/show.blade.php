@@ -127,40 +127,83 @@
         py-16 
         font-bold 
         text-center 
-        text-white">
+        text-white 
+        grid 
+        gap-16">
 
-        <h3>Ver o descargar película</h3>
+        {{-- Suppliers that only allow to see and donwload --}}
+        @if(! $suppliersThatAllowToSeeAndDownload->isEmpty())
+            <div>
+                <h3>Paginas para ver y descargar la película gratis</h3>
+                <div class="flex 
+                    flex-wrap 
+                    justify-center 
+                    items-center 
+                    gap-5">
 
-        <div class="flex 
-            flex-wrap 
-            justify-center 
-            items-center 
-            gap-5">
+                    @foreach ($suppliersThatAllowToSeeAndDownload as $supplier)
+                        <a class="w-60 
+                            h-40 
+                            group
+                            rounded 
+                            overflow-hidden
+                            hover:scale-105 
+                            transition-transform 
+                            duration-300 
+                            ease-out" 
+                            href="{{ $supplier->pivot->page }}">
 
-            @foreach ($movie->suppliers as $supplier)
-                <a class="w-60 
-                    h-40 
-                    group
-                    rounded 
-                    overflow-hidden
-                    hover:scale-105 
-                    transition-transform 
-                    duration-300 
-                    ease-out" 
-                    href="{{ $supplier->pivot->page }}">
+                            <img class="w-full
+                                h-full 
+                                object-cover
+                                group-hover:brightness-50 
+                                transition-colors 
+                                duration-300 
+                                ease-out" 
+                                src="{{ Storage::url($supplier->logo) }}" 
+                                alt="Logo de {{ $supplier->name }} | Umovies">
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+        
+        {{-- Suppliers that only allow to see --}}
+        @if(! $suppliersThatAllowToSee->isEmpty())
+            <div>
+                <h3>Paginas para ver la película gratis</h3>
+                <div class="flex
+                    flex-wrap 
+                    justify-center 
+                    items-center 
+                    gap-5">
 
-                    <img class="w-full
-                        h-full 
-                        object-cover
-                        group-hover:brightness-50 
-                        transition-colors 
-                        duration-300 
-                        ease-out" 
-                        src="{{ Storage::url($supplier->logo) }}" 
-                        alt="Logo de {{ $supplier->name }} | Umovies">
-                </a>
-            @endforeach
-        </div>
+                    @foreach ($suppliersThatAllowToSee as $supplier)
+                        <a class="w-60 
+                            h-40 
+                            group
+                            rounded 
+                            overflow-hidden
+                            hover:scale-105 
+                            transition-transform 
+                            duration-300 
+                            ease-out" 
+                            href="{{ $supplier->pivot->page }}">
+
+                            <img class="w-full
+                                h-full 
+                                object-cover
+                                group-hover:brightness-50 
+                                transition-colors 
+                                duration-300 
+                                ease-out" 
+                                src="{{ Storage::url($supplier->logo) }}" 
+                                alt="Logo de {{ $supplier->name }} | Umovies">
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        @endif
     </article>
 
     {{-- Other movies --}}
