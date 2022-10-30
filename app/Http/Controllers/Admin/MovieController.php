@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
-
 use App\Models\Category;
 use App\Models\Movie;
 
-use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\MoviesImport;
 
 class MovieController extends Controller
 {
@@ -137,5 +139,35 @@ class MovieController extends Controller
         $movie->delete();
 
         return redirect()->route('admin.movies.index')->with('info', 'Se ha eliminado con éxito');
+    }
+
+    public function import(Request $request)
+    {
+
+        $request->validate([
+            'fileToUpload' => 'required|mimes:xlsx'
+        ]);
+
+        $file = request()->file('fileToUpload');
+
+        if (! $file->isValid())
+            return;
+
+        \Illuminate\Support\Facades\DB::beginTransaction();
+
+        try {
+            Excel::import(new MoviesImport, $file->getPathname());
+
+            \Illuminate\Support\Facades\DB::commit();
+    
+            return back()->with('info', 'Se ha importado con éxito');
+
+        } catch (\Exception $ex) {
+
+            \Illuminate\Support\Facades\DB::rollBack();
+            return back()->with('info', 'Error:' . $ex->getMessage());
+
+        }
+
     }
 }
