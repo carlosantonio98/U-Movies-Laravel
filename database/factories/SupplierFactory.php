@@ -20,7 +20,7 @@ class SupplierFactory extends Factory
             'slug' => Str::slug($name),
             'logo' => 'logos/' . $imageName,
             'allow_see' => $this->faker->numberBetween(1,2),
-            'allow_donwload' => $this->faker->numberBetween(1,2),
+            'allow_download' => $this->faker->numberBetween(1,2),
         ];
     }
 }
