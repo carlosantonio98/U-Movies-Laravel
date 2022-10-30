@@ -12,6 +12,7 @@ Route::get('', [HomeController::class, 'index'])->name('admin.home');
 Route::resource('categories', CategoryController::class)->names('admin.categories');
 
 Route::resource('movies', MovieController::class)->names('admin.movies');
+Route::post('movies/import', [MovieController::class, 'import'])->name('admin.movies.import');
 
 Route::controller(MovieSupplierController::class)->group(function() {
     Route::get('movie-supplier/create/{movie}', 'create')->name('admin.movie-supplier.create');

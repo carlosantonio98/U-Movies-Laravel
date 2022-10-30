@@ -12,6 +12,7 @@
 
                 <tr>
                     <th>Id</th>
+                    <th>Image</th>
                     <th>Nombre</th>
                     <th colspan="4"></th>
                 </tr>
@@ -23,11 +24,12 @@
                 @forelse ($movies as $movie)
                     <tr>
                         <td>{{ $movie->id }}</td>
+                        <td><img class="w-9 h-16 object-cover rounded-sm" src="{{ Storage::url($movie->img_cover) }}" alt="{{ $movie->name }}: portada vertical"></td>
                         <td>{{ $movie->name }}</td>
-                        <td><a href="{{ route('admin.movies.show', $movie) }}">Ver</a></td>
-                        <td><a href="{{ route('admin.movies.edit', $movie) }}">Editar</a></td>
-                        <td><a href="{{ route('admin.movie-supplier.create', $movie) }}">Proveedor</a><br></td>
-                        <td>
+                        <td width="10px"><a href="{{ route('admin.movies.show', $movie) }}">Ver</a></td>
+                        <td width="10px"><a href="{{ route('admin.movies.edit', $movie) }}">Editar</a></td>
+                        <td width="10px"><a href="{{ route('admin.movie-supplier.create', $movie) }}">Proveedor</a><br></td>
+                        <td width="10px">
                             {!! Form::open(['route' => ['admin.movies.destroy', $movie], 'method' => 'delete']) !!}
                                 {!! Form::submit('Eliminar') !!}
                             {!! Form::close() !!}
@@ -35,7 +37,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6">Sin registros</td>
+                        <td colspan="7">Sin registros</td>
                     </tr>
                 @endforelse
 

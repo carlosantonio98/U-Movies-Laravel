@@ -1,6 +1,10 @@
 /* Headline */
-h2, h3 {
+h2, h3, h4 {
     @apply py-4 font-bold;
+}
+
+h4 {
+    @apply text-2xl;
 }
 
 h3 {
