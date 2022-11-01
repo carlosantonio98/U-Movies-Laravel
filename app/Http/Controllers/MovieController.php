@@ -22,7 +22,7 @@ class MovieController extends Controller
     }
 
     public function show(Movie $movie) {
-        $movies = Movie::latest('created_at')->limit(6)->get();
+        $movies = Movie::whereNot('id', $movie->id)->latest()->limit(6)->get();
         $suppliersThatAllowToSee = $movie->suppliersThatAllowToSee;
         $suppliersThatAllowToSeeAndDownload = $movie->suppliersThatAllowToSeeAndDownload;
 
