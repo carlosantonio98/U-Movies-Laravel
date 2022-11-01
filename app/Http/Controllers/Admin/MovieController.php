@@ -156,7 +156,7 @@ class MovieController extends Controller
         \Illuminate\Support\Facades\DB::beginTransaction();
 
         try {
-            Excel::import(new MoviesImport, $file->getPathname());
+            Excel::import(new MoviesImport, $file);
 
             \Illuminate\Support\Facades\DB::commit();
     
