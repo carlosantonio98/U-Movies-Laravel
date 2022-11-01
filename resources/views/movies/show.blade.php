@@ -221,8 +221,8 @@
             xl:grid-cols-6 
             gap-5">
 
-            @foreach ($movies as $otherMovie)
-                <x-card-movie :movie="$otherMovie"  />
+            @foreach ($movies as $movie)
+                <x-card-movie :movie="$movie" :isPremiere="$movie->premier == 2" />
             @endforeach
         </div>
 
