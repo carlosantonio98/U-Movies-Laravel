@@ -26,8 +26,8 @@
                 
                 {{-- Logo --}}
                 <div class="flex flex-shrink-0 items-center">
-                    <span class="block lg:hidden text-green-600 font-bold text-2xl"><a href="/">UMovies.</a></span>
-                    <span class="hidden lg:block text-green-600 font-bold text-2xl"><a href="/">UMovies.</a></span>
+                    <span class="block lg:hidden text-white font-bold text-2xl"><a href="/"><span class="text-green-600">iU</span>Movies.</a></span>
+                    <span class="hidden lg:block text-white font-bold text-2xl"><a href="/"><span class="text-green-600">iU</span>Movies.</a></span>
                 </div>
                 
                 {{-- Pc Menu --}}

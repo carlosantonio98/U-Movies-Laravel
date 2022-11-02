@@ -1,6 +1,6 @@
 @extends('../../layouts/app-admin')
 
-@section('title', 'UMovies')
+@section('title', env('APP_NAME'))
 
 @section('content_header')
     <h1>Dashboard</h1>

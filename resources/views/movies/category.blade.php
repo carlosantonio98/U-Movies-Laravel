@@ -1,8 +1,8 @@
 @extends('../../layouts/app')
 
-@section('title', "Ver películas de $title online | lista de películas | Umovies")
+@section('title', "Ver películas de $title online | lista de películas | " . env('APP_NAME'))
 
-@section('description', "Vea y disfrute del mejor listado de películas del genero de $title que Umovies tiene disponible para ti. Visite y elija su próxima película.")
+@section('description', "Vea y disfrute del mejor listado de películas del genero de $title que " . env('APP_NAME') . " tiene disponible para ti. Visite y elija su próxima película.")
 
 @section('content')
 

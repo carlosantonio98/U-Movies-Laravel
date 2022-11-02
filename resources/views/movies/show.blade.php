@@ -1,6 +1,6 @@
 @extends('../../layouts/app')
 
-@section('title', "$movie->name (Película $movie->year) | Umovies: ver películas")
+@section('title', "$movie->name (Película $movie->year) | " . env('APP_NAME') . ": ver películas")
 
 @section('description', "Película $movie->name: la película completa disponible online. Ver o descargar $movie->name: película gratis.")
 
@@ -28,7 +28,7 @@
                     h-full 
                     object-cover" 
                     src="{{ Storage::url($movie->img_cover) }}" 
-                    alt="{{$movie->name}}: portada vertical | Umovies">
+                    alt="{{$movie->name}}: portada vertical | {{ env('APP_NAME') }}">
             </figure>
 
             {{-- Movie name --}}
@@ -101,7 +101,7 @@
                     brightness-50
                     object-cover"  
                     src="{{ Storage::url($movie->img_slide) }}" 
-                    alt="{{$movie->name}}: portada horizontal | Umovies">
+                    alt="{{$movie->name}}: portada horizontal | {{ env('APP_NAME') }}">
             </figure>
         </div>
     </article>
@@ -161,7 +161,7 @@
                                 duration-300 
                                 ease-out" 
                                 src="{{ Storage::url($supplier->logo) }}" 
-                                alt="Logo de {{ $supplier->name }} | Umovies">
+                                alt="Logo de {{ $supplier->name }} | {{ env('APP_NAME') }}">
                         </a>
                     @endforeach
                 </div>
@@ -198,7 +198,7 @@
                                 duration-300 
                                 ease-out" 
                                 src="{{ Storage::url($supplier->logo) }}" 
-                                alt="Logo de {{ $supplier->name }} | Umovies">
+                                alt="Logo de {{ $supplier->name }} | {{ env('APP_NAME') }}">
                         </a>
                     @endforeach
                 </div>

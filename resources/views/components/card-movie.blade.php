@@ -34,7 +34,7 @@
                         transition-colors 
                         duration-300 
                         ease-out" 
-                    alt="{{ $movie->name }}: portada vertical | Umovies">
+                    alt="{{ $movie->name }}: portada vertical | {{ env('APP_NAME') }}">
 
                 <span class="absolute 
                     bottom-2 

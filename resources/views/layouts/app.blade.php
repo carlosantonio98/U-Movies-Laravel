@@ -9,7 +9,7 @@
         <meta name="description" content="@yield('description')">
         <title>@yield('title')</title>
 
-        <link rel="canonical" href="https://umovies.com">
+        <link rel="canonical" href="https://{{ strtolower(env('APP_NAME')) }}.com">
 
 
         <!-- Fonts -->
@@ -41,7 +41,7 @@
 
         <!-- Footer content -->
         <footer class="w-full p-3 text-center text-sm text-white bg-gray-700">
-            umovies &#169; 2022
+            {{ env('APP_NAME') }} &#169; 2022
         </footer>
 
         @stack('modals')

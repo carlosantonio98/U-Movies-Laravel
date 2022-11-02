@@ -1,6 +1,6 @@
 @extends('../../layouts/app')
 
-@section('title', 'Búsqueda Inteligente de películas | Umovies')
+@section('title', 'Búsqueda Inteligente de películas | ' . env('APP_NAME'))
 
 @section('description', 'Busque una película y seleccione el sitio de su agrado para poder obtenerlo gratis.')
 

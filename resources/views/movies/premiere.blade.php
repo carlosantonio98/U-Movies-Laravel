@@ -4,9 +4,9 @@
     $date = date('Y');  
 @endphp
 
-@section('title', "Ver películas online $date | lista de películas | Umovies")
+@section('title', "Ver películas online $date | lista de películas | " . env('APP_NAME'))
 
-@section('description', "Vea y disfrute del mejor listado de películas de estreno $date que Umovies tiene disponible para ti. Visite y elija su próxima película.")
+@section('description', "Vea y disfrute del mejor listado de películas de estreno $date que " . env('APP_NAME') . " tiene disponible para ti. Visite y elija su próxima película.")
 
 @section('content')
 
