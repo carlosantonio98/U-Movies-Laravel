@@ -33,6 +33,26 @@ h2 {
     @apply visible bottom-6;
 }
 
+/* Loading */
+#loading {
+    @apply fixed top-0 left-0 z-[99] flex justify-center items-center w-full h-full bg-[#000210];
+}
+
+#loading-logo {
+    @apply z-[100] text-[2rem];
+}
+
+#loading-spinner {
+    @apply z-[100] w-7 h-7 rounded-full border-[6px] border-transparent border-b-green-600 border-r-green-600;
+    animation: spinner 400ms linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(360deg);
+    }
+}
+
 /* Container */
 .container {
     @apply mx-auto max-w-7xl px-2;

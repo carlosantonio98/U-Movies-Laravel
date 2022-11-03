@@ -51,6 +51,15 @@
             <i class="fa-solid fa-chevron-up scrolltop__icon"></i>
         </a>
 
+        <!-- Loading -->
+        <div id="loading">
+            <div id="loading-logo" class="flex items-center font-bold">
+                <span class="text-green-600">iU</span>
+                <span class="text-white">Movies</span>
+            </div>
+
+            <div id="loading-spinner" class="ml-2"></div>
+        </div>
 
         <!-- Scripts -->
         @livewireScripts
@@ -59,7 +68,6 @@
         <script src="{{ asset('libs/flowbite/flowbite.js') }}"></script>
 
         @yield('js')
-
 
     </body>
 </html>
