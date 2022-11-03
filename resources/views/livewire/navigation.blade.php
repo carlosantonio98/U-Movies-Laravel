@@ -53,7 +53,7 @@
                             </button>
                         </div>
                         
-                        <div x-show="open" x-on:click.away=" open = false " class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div x-cloak x-show="open" x-on:click.away=" open = false " class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                             <div class="py-1" role="none">
 
                                 @foreach ($categories as $category)
@@ -83,7 +83,7 @@
   
 
     {{-- Mobile menu --}}
-    <div class="sm:hidden" id="mobile-menu" x-show="open" x-on:click.away=" open = false ">
+    <div class="sm:hidden" id="mobile-menu" x-cloak x-show="open" x-on:click.away=" open = false ">
         <div class="space-y-1 px-2 pt-2 pb-3">
             <a href="{{route('home')}}" class="@if(request()->routeIs('home')) bg-green-600 text-white @else text-gray-300 hover:bg-green-600 hover:text-white @endif block px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
 
@@ -106,7 +106,7 @@
                     </button>
                 </div>
                 
-                <div x-show="open" x-on:click.away=" open = false " class="absolute left-0  w-full mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div x-cloak x-show="open" x-on:click.away=" open = false " class="absolute left-0  w-full mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                     <div class="py-1" role="none">
 
                         @foreach ($categories as $category)

@@ -99,3 +99,6 @@ h2 {
 .card {
     @apply shadow-md sm:rounded-lg;
 }
+
+/* Hidden alpine */
+[x-cloak] { display: none; }
