@@ -11,11 +11,11 @@ class HomeController extends Controller
     {
         [$latestMoviesUploaded, $totalMovies] = $this->getLatestMoviesUploaded();
 
-        $premiereMovies = Movie::latest()->wherePremier(2)->limit(12)->get();
+        $premiereMovies       = Movie::latest()->wherePremier(2)->limit(12)->get();
         $latestPremiereMovies = $this->getLatestPremiereMoviesForCarousel();
-        $totalPremiereMovies = Movie::wherePremier(2)->count();
+        $mostVisitedMovies    = Visit::with('movie')->groupBy('movie_id')->selectRaw('Count(movie_id) as total, movie_id')->latest('total')->limit(12)->get();
         
-        $mostVisitedMovies = Visit::with('movie')->groupBy('movie_id')->limit(12)->get(['movie_id']);
+        $totalPremiereMovies = Movie::wherePremier(2)->count();
 
         return view('home.index', compact('latestMoviesUploaded','premiereMovies','latestPremiereMovies','totalPremiereMovies','totalMovies','mostVisitedMovies'));
     }
