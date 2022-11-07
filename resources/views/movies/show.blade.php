@@ -213,7 +213,7 @@
         text-center 
         text-white">
 
-        <h3>Últimas subida</h3>
+        <h3>Otras recomendaciones</h3>
 
         <div class="grid 
             grid-cols-2 
