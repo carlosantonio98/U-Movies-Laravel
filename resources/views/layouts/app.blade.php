@@ -8,8 +8,9 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="description" content="@yield('description')">
         <title>@yield('title')</title>
-
+        
         <link rel="canonical" href="http://{{ strtolower(env('APP_NAME')) }}.com/">
+        <link rel="shortcut icon" href="{{ asset('icono-iumovies.png') }}">
 
 
         <!-- Fonts -->
