@@ -188,7 +188,8 @@
                             transition-transform 
                             duration-300 
                             ease-out" 
-                            href="{{ $supplier->pivot->page }}">
+                            href="{{ $supplier->pivot->page }}"
+                            target="_blank">
 
                             <img class="w-full
                                 h-full 
