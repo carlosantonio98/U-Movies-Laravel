@@ -22,7 +22,19 @@ class MovieController extends Controller
     }
 
     public function show(Movie $movie) {
-        $movies = Movie::whereNot('id', $movie->id)->latest()->limit(6)->get();
+        $categoriesId = $movie->categories
+            ->pluck('id')
+            ->toArray();
+            
+        $movies = Movie::with('categories')
+            ->whereNot('id', $movie->id)
+            ->whereHas('categories', function($query) use ($categoriesId) {
+                $query->whereIn('categories.id', $categoriesId);
+            })
+            ->latest()
+            ->limit(6)
+            ->get();
+
         $suppliersThatAllowToSee = $movie->suppliersThatAllowToSee;
         $suppliersThatAllowToSeeAndDownload = $movie->suppliersThatAllowToSeeAndDownload;
 
