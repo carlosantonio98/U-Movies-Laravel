@@ -9,7 +9,7 @@
         <meta name="description" content="@yield('description')">
         <title>@yield('title')</title>
         
-        <link rel="canonical" href="http://{{ strtolower(env('APP_NAME')) }}.com/">
+        <link rel="canonical" href="{{ env('APP_URL') }}/">
         <link rel="shortcut icon" href="{{ asset('icono-iumovies.png') }}">
 
 
