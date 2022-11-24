@@ -56,9 +56,6 @@
 
         @livewire('navigation')
 
-        <!-- Header content -->
-        <header>@yield('content_header')</header>
-
         <!-- Page content -->
         <main class="min-h-screen text-white">@yield('content')</main>
 
