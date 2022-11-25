@@ -36,7 +36,7 @@
                                               text-white
                                               {{ $supplier->allow_see == 2 ?  'bg-green-700' : 'bg-red-700' }}">
 
-                                    {{ $supplier->allow_see ? 'Si' : 'No' }}
+                                    {{ $supplier->allow_see == 2 ? 'Si' : 'No' }}
                                 </small>
                             </td>
                             <td>
@@ -45,7 +45,7 @@
                                              text-white
                                              {{ $supplier->allow_download == 2 ?  'bg-green-700' : 'bg-red-700' }}">
                                     
-                                    {{ $supplier->allow_download ? 'Si' : 'No' }}
+                                    {{ $supplier->allow_download == 2 ? 'Si' : 'No' }}
                                 </small>
                             </td>
                             <td>{{ $supplier->created_at->format('d/m/Y') }}</td>
