@@ -19,8 +19,17 @@
         <!-- Flowbite css -->
         <link rel="stylesheet" href="{{ asset('libs/flowbite/flowbite.min.css') }}">
 
+        <!-- Styles -->
+        @vite(['resources/css/app.css'])
+
+        @livewireStyles
+
+        @yield('css')
+        
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="{{ asset('libs/jquery/jquery-3.6.1.min.js') }}"></script>
+
+        @vite(['resources/js/app.js'])
 
         @production
             <!-- Google tag (gtag.js) -->
@@ -33,11 +42,6 @@
                 gtag('config', 'G-WH7NSLMNMM');
             </script>
         @endproduction
-
-        <!-- Styles -->
-        @livewireStyles
-
-        @yield('css')
 
 
     </head>

@@ -14,13 +14,18 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
         <!-- Styles -->
+        @vite(['resources/css/app.css'])
+
         @livewireStyles
 
         @yield('css')
+
+        <!-- Scripts -->
+        <script src="{{ asset('libs/jquery/jquery-3.6.1.min.js') }}"></script>
+
+        @vite(['resources/js/app.js'])
+
 
     </head>
     <body class="font-sans antialiased bg-[#121317]">
