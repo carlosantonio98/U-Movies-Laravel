@@ -1,73 +1,51 @@
-<h1>Create a new supplier</h1>
+@extends('../../layouts/app-admin')
 
-{!! Form::open(['route' => 'admin.suppliers.store', 'files' => true]) !!}
-    <div>
-        {!! Form::label('name', 'Name') !!}
-        {!! Form::text('name') !!}
+@section('title', 'Crear proveedor - iUMovies')
 
-        @error('name')
-            <small><b>{{ $message }}</b></small>
-        @enderror
-    </div>
+@section('content_header')
+    <h3 class="py-0 mb-4 text-gray-200">Crear proveedor</h3>
+@endsection
+
+@section('content')
+
+    <div class="px-4 
+                py-3 
+                mb-8 
+                bg-[#1a1c23]
+                rounded-lg 
+                shadow-md">
+
+        {!! Form::open(['route' => 'admin.suppliers.store', 'files' => true]) !!}
+            
+            @include('admin.suppliers.partials.form')
+
+            {!! Form::submit('Guardar', [ 'class' => "inline-block px-4 py-2 mr-4 bg-green-600 hover:bg-green-700 text-white rounded-lg" ]) !!}
+            
+            <a href="{{ route('admin.suppliers.index') }}" class="text-gray-400 hover:text-gray-500">Regresar</a>
+            
+        {!! Form::close() !!}
     
-    <div>
-        {!! Form::label('slug', 'Slug') !!}
-        {!! Form::text('slug') !!}
-
-        @error('slug')
-            <small><b>{{ $message }}</b></small>
-        @enderror
     </div>
 
-    <div>
-        <div>
-            <img src="" width="100px" height="100pc" id="pictureLogo">
-        </div>
+@endsection
 
-        {!! Form::label('logo', 'Logo') !!}
-        {!! Form::file('logo', ['accept' => 'image/*']) !!}
+@section('js')
 
-        @error('logo')
-            <small><b>{{ $message }}</b></small>
-        @enderror
-    </div>
+    <script>
+        // Cambiar imagen
+        document.getElementById('logo').addEventListener('change', (event) => cambiarImagen(event, 'pictureLogo'));
 
-    <div>
-        {!! Form::label('allow_see', 'Allow see?') !!}
-        {!! Form::checkbox('allow_see', 2) !!}
+        // Esta función transforma la imagen que hayamos seleccionado a base 64
+        function cambiarImagen(event, idContainer) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
 
-        @error('allow_see')
-            <small><b>{{ $message }}</b></small>
-        @enderror
-    </div>
-    
-    <div>
-        {!! Form::label('allow_download', 'Allow download?') !!}
-        {!! Form::checkbox('allow_download', 2) !!}
+            reader.onload = ({ target }) => {
+                document.getElementById(idContainer).setAttribute('src', target.result);
+            }
 
-        @error('allow_download')
-            <small><b>{{ $message }}</b></small>
-        @enderror
-    </div>
-
-    {!! Form::submit('Save') !!}
-    <a href="{{ route('admin.suppliers.index') }}">Go back</a>
-    
-{!! Form::close() !!}
-
-<script>
-    // Cambiar imagen
-    document.getElementById('logo').addEventListener('change', (event) => cambiarImagen(event, 'pictureLogo'));
-
-    // Esta función transforma la imagen que hayamos seleccionado a base 64
-    function cambiarImagen(event, idContainer) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-
-        reader.onload = ({ target }) => {
-            document.getElementById(idContainer).setAttribute('src', target.result);
+            reader.readAsDataURL(file);
         }
+    </script>
 
-        reader.readAsDataURL(file);
-    }
-</script>
+@endsection
