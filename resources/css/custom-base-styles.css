@@ -118,7 +118,7 @@ h2 {
 
 /* Card */
 .card {
-    @apply shadow-md sm:rounded-lg;
+    @apply shadow-md sm:rounded-lg overflow-hidden;
 }
 
 /* Hidden alpine */
