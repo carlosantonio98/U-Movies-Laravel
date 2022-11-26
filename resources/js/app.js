@@ -1,16 +1,14 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
-import jQuery from 'jquery';
 
 window.Alpine = Alpine;
-window.$ = jQuery;
 
 Alpine.start();
 
 // Loading
 $(window).on('load', function() {
-    setTimeout(removeLoader, 1000); //wait for page load PLUS two seconds.
+    setTimeout(removeLoader, 400); //wait for page load PLUS two seconds.
 })
 
 function removeLoader(){

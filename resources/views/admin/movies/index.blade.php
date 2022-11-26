@@ -1,31 +1,46 @@
 @extends('../../layouts/app-admin')
 
-@section('title', env('APP_NAME'))
+@section('title', 'Películas - iUMovies')
 
 @section('content_header')
     @if (session('info'))
-        <p><b>{{ session('info') }}</b></p>
+        <div class="w-full 
+                    px-4 
+                    py-2 
+                    rounded
+                    font-bold 
+                    bg-green-600 
+                    text-white">
+
+            <p>{{ session('info') }}</p>
+        </div>
     @endif
 
-    <div class="flex flex-wrap justify-between mb-4">
-        <h3 class="py-0">Lista de películas</h3>
+    <div class="flex 
+                flex-wrap 
+                justify-between 
+                mb-4">
+                
+        <h3 class="py-0 text-gray-200">Películas</h3>
         <a href="{{ route('admin.movies.create') }}" class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">Nueva película</a>
     </div>
     
 
-    <div class="card p-4 mb-4 text-center">
-
-        <h4>Importar peliculas</h4>
+    <div class="card p-4 mb-8 bg-[#1a1c23]">
 
         {!! Form::open(['route' => 'admin.movies.import', 'autocomplete' => 'off', 'files' => true]) !!}
 
-            {!! Form::file('fileToUpload', ['class' => 'w-full px-4 py-2 rounded bg-gray-200 mb-2', 'accept' => 'application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']) !!}
-
+            <div class="flex">
+                <div class="w-[70%] lg:w-[90%]">
+                    {!! Form::file('fileToUpload', ['class' => 'w-full px-4 py-2 rounded-lg rounded-r-none bg-gray-200', 'accept' => 'application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']) !!}
+                </div>
+    
+                {!! Form::submit('Importar', [ 'class' => 'w-[30%] lg:w-[10%] px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg rounded-l-none']) !!}
+            </div>
+            
             @error('fileToUpload')
-                <small class="block text-red-500"><b>{{ $message }}</b></small>
+                <small class="block text-red-500 mt-1"><b>{{ $message }}</b></small>
             @enderror
-
-            {!! Form::submit('Importar', [ 'class' => 'inline-block px-4 py-2 m-3 bg-green-600 hover:bg-green-700 text-white rounded-lg']) !!}
 
         {!! Form::close() !!}
     </div>

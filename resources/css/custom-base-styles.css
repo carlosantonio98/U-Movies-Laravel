@@ -72,32 +72,53 @@ h2 {
 
 /* Table */
 .table {
-    @apply w-full text-sm text-left text-gray-500 dark:text-gray-400;
+    @apply w-full text-sm text-left bg-[#1a1c23] text-gray-400;
 }
 
 .table thead {
-    @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+    @apply text-xs uppercase text-white;
 }
 
-.table tbody tr {
-    @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600;
+.table thead tr {
+    @apply border-b border-gray-800;
+}
+
+.table tbody {
+    @apply divide-y divide-gray-800
 }
 
 .table th, .table td {
-    @apply px-6 py-3;
+    @apply p-4;
 }
 
 .table td:first-child {
-    @apply font-medium text-gray-900 dark:text-white;
+    @apply font-medium text-white;
 }
 
 .table a {
-    @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
+    @apply p-2 rounded-lg font-medium text-gray-400 hover:text-white focus:outline-none focus:ring focus:ring-gray-400;
+}
+
+/* Form */
+.form-group-custom {
+    @apply text-sm mb-4;
+}
+
+.form-label-custom {
+    @apply block text-gray-400;
+}
+
+.form-input-custom {
+    @apply block w-full mt-1 rounded text-gray-300 bg-[#24262d] form-input focus:outline-none focus:ring focus:ring-gray-400 focus:border-gray-400;
+}
+
+.form-error-custom {
+    @apply font-medium text-red-400;
 }
 
 /* Card */
 .card {
-    @apply shadow-md sm:rounded-lg;
+    @apply shadow-md sm:rounded-lg overflow-hidden;
 }
 
 /* Hidden alpine */

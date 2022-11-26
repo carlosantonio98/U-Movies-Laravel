@@ -9,7 +9,7 @@
         <meta name="description" content="@yield('description')">
         <title>@yield('title')</title>
         
-        <link rel="canonical" href="http://{{ strtolower(env('APP_NAME')) }}.com/">
+        <link rel="canonical" href="{{ env('APP_URL') }}/">
         <link rel="shortcut icon" href="{{ asset('icono-iumovies.png') }}">
 
 
@@ -19,8 +19,17 @@
         <!-- Flowbite css -->
         <link rel="stylesheet" href="{{ asset('libs/flowbite/flowbite.min.css') }}">
 
+        <!-- Styles -->
+        @vite(['resources/css/app.css'])
+
+        @livewireStyles
+
+        @yield('css')
+        
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="{{ asset('libs/jquery/jquery-3.6.1.min.js') }}"></script>
+
+        @vite(['resources/js/app.js'])
 
         @production
             <!-- Google tag (gtag.js) -->
@@ -33,11 +42,6 @@
                 gtag('config', 'G-WH7NSLMNMM');
             </script>
         @endproduction
-
-        <!-- Styles -->
-        @livewireStyles
-
-        @yield('css')
 
 
     </head>
@@ -55,9 +59,6 @@
         </div>
 
         @livewire('navigation')
-
-        <!-- Header content -->
-        <header>@yield('content_header')</header>
 
         <!-- Page content -->
         <main class="min-h-screen text-white">@yield('content')</main>
