@@ -30,11 +30,23 @@
 @endsection
 
 @section('js')
+
+    <!-- Script slug -->
+    <script src="{{ asset('libs/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+
     <script>
-        // Cambiar imagen
+
+        // Crea el slug con el nombre
+        $("#name").stringToSlug({
+            setEvents: 'keyup keydown blur',
+            getPut: '#slug',
+            space: '-'
+        });
+
+        // Cambia la imagen
         document.getElementById('logo').addEventListener('change', (event) => cambiarImagen(event, 'pictureLogo'));
 
-        // Esta función transforma la imagen que hayamos seleccionado a base 64
+        // Transforma la imagen que hayamos seleccionado a base 64
         function cambiarImagen(event, idContainer) {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -45,5 +57,7 @@
 
             reader.readAsDataURL(file);
         }
+
     </script>
+
 @endsection

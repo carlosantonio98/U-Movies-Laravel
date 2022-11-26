@@ -30,29 +30,41 @@
 @endsection
 
 @section('js')
+
+    <!-- Script slug -->
+    <script src="{{ asset('libs/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+    
+    <!-- Script ckeditor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 
     <script>
-    
+
+        // Crea el slug del nombre
+        $("#name").stringToSlug({
+            setEvents: 'keyup keydown blur',
+            getPut: '#slug',
+            space: '-'
+        });
+
+        // Crea el ckeditor del extracto
         ClassicEditor
         .create( document.querySelector( '#extract' ) )
         .catch( error => {
             console.error( error );
         } );
         
+        // Crea el ckeditor de la descripción
         ClassicEditor
         .create( document.querySelector( '#description' ) )
         .catch( error => {
             console.error( error );
         } );
 
-
-
-        // Cambiar imagen
+        // Cambia la imagen
         document.getElementById('img_cover').addEventListener('change', (event) => cambiarImagen(event, 'pictureCover'));
         document.getElementById('img_slide').addEventListener('change', (event) => cambiarImagen(event, 'pictureSlide'));
 
-        // Esta función transforma la imagen que hayamos seleccionado a base 64
+        // Transforma la imagen que hayamos seleccionado a base 64
         function cambiarImagen(event, idContainer) {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -65,4 +77,5 @@
         }
     
     </script>
+
 @endsection

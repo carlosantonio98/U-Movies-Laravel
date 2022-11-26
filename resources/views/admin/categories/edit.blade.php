@@ -51,3 +51,21 @@
     </div>
 
 @endsection
+
+@section('js')
+
+    <!-- Script slug -->
+    <script src="{{ asset('libs/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
+
+    <script>
+
+        // Crea el slug con el nombre
+        $("#name").stringToSlug({
+            setEvents: 'keyup keydown blur',
+            getPut: '#slug',
+            space: '-'
+        });
+
+    </script>
+
+@endsection
