@@ -20,4 +20,8 @@ class Supplier extends Model
     public function movies() {
         return $this->belongsToMany('App\Models\Movie', 'movie_supplier', 'movie_id', 'supplier_id')->withPivot('page');
     }
+    
+    public function moviesWithoutPivot() {
+        return $this->belongsToMany('App\Models\Movie');
+    }
 }
