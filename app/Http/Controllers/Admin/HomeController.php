@@ -57,7 +57,7 @@ class HomeController extends Controller
         $monthMovieData = array_fill(0, 12, 0);
 
         foreach($numberMoviesByMonths as $item) {
-            $monthMovieData[$item['date_month'] - 1] = $item['movies_count'];
+            $monthMovieData[$item['date_month'] - 1] = $item['number_movies'];
         }
 
         $dataForMoviesByMonthsChart = [
@@ -71,11 +71,11 @@ class HomeController extends Controller
         ];
 
         // Chart 4
-        $numberVisitsByMonths = Visit::select(DB::raw('count(*) as visit_count, MONTH(created_at) as date_month'))->whereYear('created_at', date('Y'))->groupBy(['date_month'])->get();
-        $monthVisitData      = array_fill(0, 12, 0);
+        $numberVisitsByMonths = Visit::select(DB::raw('count(*) as number_visits, MONTH(created_at) as date_month'))->whereYear('created_at', date('Y'))->groupBy(['date_month'])->get();
+        $monthVisitData = array_fill(0, 12, 0);
 
         foreach($numberVisitsByMonths as $item) {
-            $monthVisitData[$item['date_month'] - 1] = $item['visit_count'];
+            $monthVisitData[$item['date_month'] - 1] = $item['number_visits'];
         }
 
         $dataForVisitsByMonthsChart = [

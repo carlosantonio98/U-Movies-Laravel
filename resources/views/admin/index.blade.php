@@ -83,7 +83,7 @@
             <div id="categoriesChart"></div>
         </div>
         
-        <!-- Column chart 2 -->
+        <!-- Donut chart 2 -->
         <div class="min-w-0 p-4 bg-[#1a1c23] rounded-lg shadow-xs col-span-1">
             <h4 class="mb-4 font-semibold text-gray-200">Películas por proveedor</h4>
 
@@ -124,7 +124,8 @@
             series: dataForCategories.series,
             chart: {
                 type: 'bar',
-                height: 350
+                height: 350,
+                foreColor: '#9CA3AF'
             },
             plotOptions: {
                 bar: {
@@ -186,7 +187,8 @@
             chart: {
                 type: 'donut',
                 width: '100%',
-                height: 350 
+                height: 350,
+                foreColor: '#9CA3AF'
             },
             legend: {
               position: 'bottom'
