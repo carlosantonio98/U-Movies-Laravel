@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('movies', function (Blueprint $table) {
 
             $table->enum('active', [1, 2])->default(1)->after('premier');
-            $table->date('activation_date')->after('active');
+            $table->date('activation_date')->after('active')->nullable();
 
         });
     }
