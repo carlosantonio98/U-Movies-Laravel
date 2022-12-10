@@ -43,7 +43,7 @@
                 justify-start
                 gap-2">
 
-                <span class="text-sm">{{ $movie->created_at->format('d/m/Y') }}</span>
+                <span class="text-sm">{{ $movie->activation_date->format('d/m/Y') }}</span>
 
                 <i class="fas fa-calendar mr-4"></i>
 

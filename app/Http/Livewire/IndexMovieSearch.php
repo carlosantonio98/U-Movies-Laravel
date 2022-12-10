@@ -19,7 +19,8 @@ class IndexMovieSearch extends Component
     public function render()
     {
         $movies = Movie::where('name', 'LIKE', '%' . $this->search . '%')
-            ->latest('id')
+            ->whereActive(2)
+            ->latest('activation_date')
             ->paginate(18);
         
         return view('livewire.index-movie-search', compact('movies'));

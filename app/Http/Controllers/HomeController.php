@@ -11,11 +11,11 @@ class HomeController extends Controller
     {
         [$latestMoviesUploaded, $totalMovies] = $this->getLatestMoviesUploaded();
 
-        $premiereMovies       = Movie::latest()->wherePremier(2)->limit(12)->get();
+        $premiereMovies       = Movie::whereActive(2)->wherePremier(2)->latest('activation_date')->limit(12)->get();
         $latestPremiereMovies = $this->getLatestPremiereMoviesForCarousel();
-        $mostVisitedMovies    = Visit::with('movie')->groupBy('movie_id')->selectRaw('Count(movie_id) as total, movie_id')->latest('total')->limit(12)->get();
+        $mostVisitedMovies    = Visit::groupBy('movie_id')->selectRaw('Count(movie_id) as total, movie_id')->latest('total')->limit(12)->get();
         
-        $totalPremiereMovies = Movie::wherePremier(2)->count();
+        $totalPremiereMovies = Movie::whereActive(2)->wherePremier(2)->count();
 
         return view('home.index', compact('latestMoviesUploaded','premiereMovies','latestPremiereMovies','totalPremiereMovies','totalMovies','mostVisitedMovies'));
     }
@@ -24,9 +24,10 @@ class HomeController extends Controller
     {
         $currentMonth = date('m');
         $currentYear = date('Y');
-        $latestMoviesUploaded = Movie::whereMonth('created_at', '=', $currentMonth)
-            ->whereYear('created_at', '=', $currentYear)
-            ->latest();
+        $latestMoviesUploaded = Movie::whereActive(2)
+            ->whereMonth('activation_date', '=', $currentMonth)
+            ->whereYear('activation_date', '=', $currentYear)
+            ->latest('activation_date');
 
         $totalMovies = $latestMoviesUploaded->count();
 
@@ -39,7 +40,7 @@ class HomeController extends Controller
     private function getLatestPremiereMoviesForCarousel()
     {
         $latestPremiereMovies = [];
-        $imageLatestPremiereMovies = Movie::latest()->wherePremier(2)->limit(6)->get(['img_slide', 'name', 'slug']);
+        $imageLatestPremiereMovies = Movie::whereActive(2)->wherePremier(2)->latest('activation_date')->limit(6)->get(['img_slide', 'name', 'slug']);
         $position = 0;
 
         foreach ($imageLatestPremiereMovies as $movie) {

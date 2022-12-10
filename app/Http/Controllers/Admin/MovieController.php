@@ -52,6 +52,7 @@ class MovieController extends Controller
 
         $movie = new Movie($request->validated());
         $movie->user_id = Auth::id();
+        $movie->activation_date = $request->active == 2 ? now() : $request->activation_date;
 
         if ($request->file('img_cover') && $request->file('img_slide')) {
             $movie->img_cover = Storage::put('covers', $request->file('img_cover'));
@@ -64,7 +65,7 @@ class MovieController extends Controller
             $movie->categories()->attach($request->categories);
         }
 
-        return redirect()->route('admin.movies.edit', $movie)->with('info', 'Se ha creado con éxito');
+        return redirect()->route('admin.movie-supplier.create', $movie)->with('info', 'Se ha creado con éxito, por favor  asigne un proveedor para finalizar el proceso');
 
     }
 
@@ -106,6 +107,7 @@ class MovieController extends Controller
         $this->authorize('update', $movie);
 
         $movie->fill($request->validated());
+        $movie->activation_date = $request->active == 2 ? now() : $request->activation_date;
 
         if ($request->file('img_cover')) {
             Storage::delete($movie->img_cover);

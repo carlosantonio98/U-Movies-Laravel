@@ -208,3 +208,54 @@
     @enderror
 
 </div>
+
+<!-- Active / Activation date -->
+<div class="grid grid-cols-1 md:grid-cols-2 md:gap-4" @if (isset($movie) && $movie->active == 1) x-data="{ showDateField: true }" @else x-data="{ showDateField: false }" @endif>
+    <!--  Radiobuttons -->
+    <div>
+        <div class="form-group-custom">
+            <p class="text-gray-400">Activar ahora? </p>
+
+            <div>
+
+                <label class="mr-5 text-gray-500" x-on:click=" showDateField = true ">
+                    {!! Form::radio('active', 1) !!}
+                    <span class="ml-2">No</span>
+                </label>
+
+                <label class="mr-5 text-gray-500"  x-on:click=" showDateField = false ">
+                    {!! Form::radio('active', 2, true) !!}
+                    <span class="ml-2">Si</span>
+                </label>
+
+            </div>
+
+            @error('active')
+                <small class="form-error-custom">{{ $message }}</small>
+            @enderror
+        </div>
+    </div>
+
+    <!--  Date -->
+    <div x-cloak 
+         x-show=" showDateField " 
+         x-transition:enter="transition ease-in-out duration-150"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in-out duration-150"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+
+        <div class="form-group-custom">
+
+            {!! Form::label('activation_date', 'En qué fecha desea activarlo?', [ 'class' => 'form-label-custom' ]) !!}
+
+            {!! Form::date('activation_date', null, [ 'class' => 'form-input-custom', 'placeholder' => 'Ingrese la fecha de activación' ]) !!}
+
+            @error('activation_date')
+                <small class="form-error-custom">{{ $message }}</small>
+            @enderror
+
+        </div>
+    </div>
+</div>

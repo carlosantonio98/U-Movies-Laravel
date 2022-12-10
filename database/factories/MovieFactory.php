@@ -27,6 +27,8 @@ class MovieFactory extends Factory
             'trailer' => $this->faker->randomElement(['https://www.youtube.com/embed/i9VSSbXb0N4', 'https://www.youtube.com/embed/BPjbiZQmBI4']),
             'slug' => Str::slug($name),
             'premier' => $this->faker->randomElement([1, 2]),
+            'active' => $this->faker->randomElement([1, 2]),
+            'activation_date' => $this->faker->date(),
             'user_id' => User::all()->random()->id
         ];
     }

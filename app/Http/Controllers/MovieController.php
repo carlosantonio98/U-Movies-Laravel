@@ -11,7 +11,7 @@ class MovieController extends Controller
     public function index()
     {
         $title = 'Películas';
-        $movies = Movie::latest()->paginate(18);
+        $movies = Movie::whereActive(2)->latest('activation_date')->paginate(18);
 
         return view('movies.index', compact('title', 'movies'));
     }
@@ -22,16 +22,19 @@ class MovieController extends Controller
     }
 
     public function show(Movie $movie) {
+        if ($movie->active == 1) return redirect()->route('home');
+
         $categoriesId = $movie->categories
             ->pluck('id')
             ->toArray();
-            
+
         $movies = Movie::with('categories')
+            ->whereActive(2)
             ->whereNot('id', $movie->id)
             ->whereHas('categories', function($query) use ($categoriesId) {
                 $query->whereIn('categories.id', $categoriesId);
             })
-            ->latest()
+            ->latest('activation_date')
             ->limit(6)
             ->get();
 
@@ -45,7 +48,7 @@ class MovieController extends Controller
     
     public function category(Category $category) {
         $title = $category->name;
-        $movies = $category->movies()->latest()->paginate(18);
+        $movies = $category->movies()->whereActive(2)->latest('activation_date')->paginate(18);
 
         return view('movies.category', compact('title', 'movies'));
     }
@@ -54,9 +57,10 @@ class MovieController extends Controller
         $title = 'Últimas subida';
         $currentMonth = date('m');
         $currentYear = date('Y');
-        $movies = Movie::whereMonth('created_at', '=', $currentMonth)
-            ->whereYear('created_at', '=', $currentYear)
-            ->latest()
+        $movies = Movie::whereActive(2)
+            ->whereMonth('activation_date', '=', $currentMonth)
+            ->whereYear('activation_date', '=', $currentYear)
+            ->latest('activation_date')
             ->paginate(18);
 
         return view('movies.new', compact('title', 'movies'));
@@ -64,7 +68,7 @@ class MovieController extends Controller
 
     public function premiere() {
         $title = 'Estrenos';
-        $movies = Movie::wherePremier(2)->latest()->paginate(18);
+        $movies = Movie::whereActive(2)->wherePremier(2)->latest('activation_date')->paginate(18);
 
         return view('movies.premiere', compact('title', 'movies'));
     }
