@@ -16,7 +16,7 @@
                   text-lg 
                   font-bold 
                   text-gray-200"
-           href="#"><span class="text-green-600">iU</span>Movies.
+           href="/"><span class="text-green-600">iU</span>Movies.
         </a>
 
 
