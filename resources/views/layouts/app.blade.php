@@ -32,7 +32,7 @@
         @vite(['resources/js/app.js'])
 
         @production
-            <!-- Google tag (gtag.js) -->
+            <!-- Google Analitycs -->
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-WH7NSLMNMM"></script>
             <script>
                 window.dataLayer = window.dataLayer || [];
@@ -41,6 +41,9 @@
 
                 gtag('config', 'G-WH7NSLMNMM');
             </script>
+
+            <!-- Google Adsense -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4484344714690971" crossorigin="anonymous"></script>
         @endproduction
 
 
